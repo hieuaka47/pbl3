@@ -1,0 +1,144 @@
+package Model;
+
+import java.io.Serializable;
+import java.util.Date;
+
+public class Tour {
+	private int id_tour;
+	private int id_cate;
+	private String name_tour;
+	private String img;
+	private Double price;
+	private String duration;
+	private Date date_start;
+	private String pickup_locations;
+	private int quantity_max_people;
+	private int quantity_max_tour;
+	private String describe;
+	private String schedule;
+	
+	public Tour() {
+		
+	}
+
+	public Tour(int id_tour, int id_cate, String name_tour, String img, Double price, String duration, Date date_start,
+			String pickup_locations, int quantity_max_people, int quantity_max_tour, String describe, String schedule) {
+		this.id_tour = id_tour;
+		this.id_cate = id_cate;
+		this.name_tour = name_tour;
+		this.img = img;
+		this.price = price;
+		this.duration = duration;
+		this.date_start = date_start;
+		this.pickup_locations = pickup_locations;
+		this.quantity_max_people = quantity_max_people;
+		this.quantity_max_tour = quantity_max_tour;
+		this.describe = describe;
+		this.schedule = schedule;
+	}
+
+	public int getId_tour() {
+		return id_tour;
+	}
+
+	public void setId_tour(int id_tour) {
+		this.id_tour = id_tour;
+	}
+
+	public int getId_cate() {
+		return id_cate;
+	}
+
+	public void setId_cate(int id_cate) {
+		this.id_cate = id_cate;
+	}
+
+	public String getName_tour() {
+		return name_tour;
+	}
+
+	public void setName_tour(String name_tour) {
+		this.name_tour = name_tour;
+	}
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	public String getDuration() {
+		return duration;
+	}
+
+	public void setDuration(String duration) {
+		this.duration = duration;
+	}
+
+	public Date getDate_start() {
+		return date_start;
+	}
+
+	public void setDate_start(Date date_start) {
+		this.date_start = date_start;
+	}
+
+	public String getPickup_locations() {
+		return pickup_locations;
+	}
+
+	public void setPickup_locations(String pickup_locations) {
+		this.pickup_locations = pickup_locations;
+	}
+
+	public int getQuantity_max_people() {
+		return quantity_max_people;
+	}
+
+	public void setQuantity_max_people(int quantity_max_people) {
+		this.quantity_max_people = quantity_max_people;
+	}
+
+	public int getQuantity_max_tour() {
+		return quantity_max_tour;
+	}
+
+	public void setQuantity_max_tour(int quantity_max_tour) {
+		this.quantity_max_tour = quantity_max_tour;
+	}
+
+	public String getDescribe() {
+		return describe;
+	}
+
+	public void setDescribe(String describe) {
+		this.describe = describe;
+	}
+
+	public String getSchedule() {
+		return schedule;
+	}
+
+	public void setSchedule(String schedule) {
+		this.schedule = schedule;
+	}
+
+	@Override
+	public String toString() {
+		return "Tour [id_tour=" + id_tour + ", id_cate=" + id_cate + ", name_tour=" + name_tour + ", img=" + img
+				+ ", price=" + price + ", duration=" + duration + ", date_start=" + date_start + ", pickup_locations="
+				+ pickup_locations + ", quantity_max_people=" + quantity_max_people + ", quantity_max_tour="
+				+ quantity_max_tour + ", describe=" + describe + ", schedule=" + schedule + "]";
+	}
+
+}
