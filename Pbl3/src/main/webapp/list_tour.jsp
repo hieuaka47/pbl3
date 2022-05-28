@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Product</title>
+    <title>Tour</title>
     <!-- Bootstrap 5 CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -25,17 +25,22 @@
     <!-- Demo CSS (No need to include it into your project) -->
     <link rel="stylesheet" href="assets/css/demo.css" />
 </head>
+
 <body>
+	  <jsp:include page="header_home.jsp"></jsp:include>
 	  <main>
       <!-- DEMO HTML -->
-      <div class="container bg-white">
-        <nav class="navbar navbar-expand-md navbar-light bg-white">
-          <div class="container-fluid p-0">
-            <a class="navbar-brand text-uppercase fw-800" href="#"
-              ><span class="border-red pe-2">All</span>Tour</a
+      <div class="container container1 bg-white">
+        <nav class="navbar navbar-expand-md navbar-light bg-white 
+        navbar1 navbar-expand-md1 navbar-light1 bg-white1">
+          <div class="container-fluid p-0 
+                      container-fluid1 p-01">
+            <a class="navbar-brand text-uppercase fw-800
+                      navbar-brand1 text-uppercase1 fw-8001" href="#"
+              ><span class="border-red pe-2 border-red1 pe-21">All</span>Tour</a
             >
             <button
-              class="navbar-toggler"
+              class="navbar-toggler navbar-toggler1"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#myNav"
@@ -45,26 +50,28 @@
             >
               <span class="fas fa-bars"></span>
             </button>
-            <div class="collapse navbar-collapse" id="myNav">
-              <div class="navbar-nav ms-auto">
-                <a class="nav-link active" aria-current="page" href="#">All</a>
-                <a class="nav-link" href="#">Women's</a>
-                <a class="nav-link" href="#">Men's</a>
-                <a class="nav-link" href="#">Kid's</a>
-                <a class="nav-link" href="#">Accessories</a>
-                <a class="nav-link" href="#">Cosmetics</a>
+            <div class="collapse navbar-collapse collapse1 navbar-collapse1" id="myNav">
+              <div class="navbar-nav navbar-nav ms-auto 
+              navbar-nav1 navbar-nav1 ms-auto1">
+                <a class="nav-link nav-link active
+                  nav-link1 nav-link1 active1" aria-current="page" href="#">All</a>
+                <a class="nav-link nav-link nav-link1 nav-link1" href="#">Women's</a>
+                <a class="nav-link nav-link nav-link1 nav-link1" href="#">Men's</a>
+                <a class="nav-link nav-link nav-link1 nav-link1" href="#">Kid's</a>
+                <a class="nav-link nav-link nav-link1 nav-link1" href="#">Accessories</a>
+                <a class="nav-link nav-link nav-link1 nav-link1" href="#">Cosmetics</a>
               </div>
             </div>
           </div>
         </nav>
-        <% System.out.println(request.getAttribute("a")+"b"); %>
+        
         <div class="row row-cols-3">
         
 			<c:forEach items="${listT }" var="t"  >
 				
 	          <div class="col d-flex flex-column align-items-center justify-content-center product-item my-3">
 	            <div class="product">
-	              <img src="${t.img }" alt="" />
+	              <a href="#"><img src="${t.img }" alt="" /></a>
 	              <ul class="d-flex align-items-center justify-content-center list-unstyled icons">
 	                <li class="icon">
 	                  <span class="fas fa-expand-arrows-alt"></span>
@@ -73,8 +80,10 @@
 	                <li class="icon"><span class="fas fa-shopping-bag"></span></li>
 	              </ul>
 	            </div>
-	            <div class="tag bg-red">sale</div>
-	            <div class="title pt-4 pb-1">aaa</div>
+	            <!--<div class="tag bg-red">sale</div>-->
+	            <div class="title pt-4 pb-1">
+	            	<a href="#">${t.name_tour }</a>
+	            </div>
 	            <div class="d-flex align-content-center justify-content-center">
 	              <span class="fas fa-star"></span>
 	              <span class="fas fa-star"></span>
@@ -82,7 +91,8 @@
 	              <span class="fas fa-star"></span>
 	              <span class="fas fa-star"></span>
 	            </div>
-	            <div class="price">300</div>
+	            <div class="price">${t.price } <span>d</span></div>
+	            <div class="quantity_empty">Số chỗ còn nhận : <span>${t.quantity_max_tour }</span></div>
 	          </div>
 			
 			</c:forEach>

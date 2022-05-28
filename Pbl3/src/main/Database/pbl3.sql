@@ -28,6 +28,20 @@ CREATE TABLE `tour` (
   KEY `fk_tour_category` (`id_cate`)
 ) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+INSERT INTO `tour` VALUES ('1','1','Đà Nẵng - Bà Nà - Cầu Vàng - Sơn Trà - Biển Mỹ Khê - Hội An - Đà Nẵng',
+				'assets/img/tour/bantayvang.jpg','6190000','3 ngày 2 đêm','2022-5-26','Truong DHBK','5','10','','');
+INSERT INTO `tour` VALUES ('2','2','Đà Nẵng - Huế - Đầm Lập An - La Vang - KDL Bà Nà - Cầu Vàng -Sơn Trà - Hội An',
+				'assets/img/tour/suoikhoangnong.jpg','7190000','2 ngày 2 đêm','2022-5-26','Truong DHBK','6','8','','');
+INSERT INTO `tour` VALUES ('3','3','Đà Nẵng - Bán Đảo Sơn Trà - Bà Nà Hills - Rừng Dừa Bảy Mẫu - Phố Cổ Hội An',
+				'assets/img/tour/rungdua7mau.jpg','8190000','3 ngày 2 đêm','2022-5-26','Truong DHBK','7','9','','');  
+INSERT INTO `tour` VALUES ('4','2','Đà Nẵng - Bà Nà - Cầu Vàng - Hội An',
+				'assets/img/tour/hoian.jpg','6190000','1 ngày 1 đêm','2022-5-26','Truong DHBK','8','7','','');  
+INSERT INTO `tour` VALUES ('5','1','Huế - Đà Nẵng - Bà Nà - Hội An',
+				'assets/img/tour/banahill.jpg','6190000','2 ngày 1 đêm','2022-5-26','Truong DHBK','5','10','','');  
+INSERT INTO `tour` VALUES ('6','3','Đại học Bách Khoa Đà Nẵng',
+				'assets/img/tour/DHBKDN.jpg','10190000','4 ngày 3 đêm','2022-5-26','Truong DHBK','4','7','',''); 
+				
+
 CREATE TABLE `user` (
   `user_id` int NOT NULL auto_increment,
   `username` varchar(255) collate utf8_unicode_ci NOT NULL,

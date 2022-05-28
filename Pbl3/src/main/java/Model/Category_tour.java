@@ -2,15 +2,15 @@ package Model;
 
 public class Category_tour {
 	private int id_cate;
-	private String name;
+	private String name_cate;
 
 	public Category_tour() {
 	}
 
-	public Category_tour(int id_cate, String name) {
+	public Category_tour(int id_cate, String name_cate) {
 		super();
 		this.id_cate = id_cate;
-		this.name = name;
+		this.name_cate = name_cate;
 	}
 
 	public int getId_cate() {
@@ -21,12 +21,17 @@ public class Category_tour {
 		this.id_cate = id_cate;
 	}
 
-	public String getName() {
-		return name;
+	public String getName_cate() {
+		return name_cate;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName_cate(String name_cate) {
+		this.name_cate = name_cate;
+	}
+
+	@Override
+	public String toString() {
+		return "Category_tour [id_cate=" + id_cate + ", name_cate=" + name_cate + "]";
 	}
 
 	
