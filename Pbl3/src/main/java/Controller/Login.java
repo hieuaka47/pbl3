@@ -42,7 +42,6 @@ public class Login extends HttpServlet {
 			request.setAttribute("status", status);
 		}
 
-		String url = "/login.jsp";
 		try {
 			if (status.length() == 0) {
 				HttpSession session = request.getSession();

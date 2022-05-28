@@ -55,11 +55,10 @@
               navbar-nav1 navbar-nav1 ms-auto1">
                 <a class="nav-link nav-link active
                   nav-link1 nav-link1 active1" aria-current="page" href="#">All</a>
-                <a class="nav-link nav-link nav-link1 nav-link1" href="#">Women's</a>
-                <a class="nav-link nav-link nav-link1 nav-link1" href="#">Men's</a>
-                <a class="nav-link nav-link nav-link1 nav-link1" href="#">Kid's</a>
-                <a class="nav-link nav-link nav-link1 nav-link1" href="#">Accessories</a>
-                <a class="nav-link nav-link nav-link1 nav-link1" href="#">Cosmetics</a>
+                <c:forEach items="${listC }" var="c">
+                	<a class="nav-link nav-link nav-link1 nav-link1" href="#">${c.name_cate }</a>
+                </c:forEach>
+
               </div>
             </div>
           </div>

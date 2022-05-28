@@ -32,5 +32,7 @@ public class List_tour extends HttpServlet {
 		request.setAttribute("listT", listT);
 		request.getRequestDispatcher("/list_tour.jsp").forward(request, response);
 	}
+	
+
 
 }
