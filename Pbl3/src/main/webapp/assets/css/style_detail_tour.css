@@ -47,10 +47,9 @@ img{
     padding: 2rem 1rem;
 }
 .product-title{
-    font-size: 3rem;
+    font-size: 1.5rem;
     text-transform: capitalize;
     font-weight: 700;
-    position: relative;
     color: #12263a;
     margin: 1rem 0;
 }
@@ -67,13 +66,14 @@ img{
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 400;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     display: inline-block;
     margin-bottom: 0.5rem;
-    background: #256eff;
+    background: #f64749;
     color: #fff;
     padding: 0 0.3rem;
     transition: all 0.5s ease;
+    border-radius: 0.8rem;
 }
 .product-link:hover{
     opacity: 0.9;
@@ -113,11 +113,25 @@ img{
 .product-detail ul{
     margin: 1rem 0;
     font-size: 0.9rem;
+    padding-left: 0rem;
 }
+
+.social-links p {
+	margin-bottom: 0rem;
+}
+
+.img-showcase img {
+	border-radius: 1rem;
+}
+
+.img-item img {
+	border-radius: 0.3rem;
+}
+
 .product-detail ul li{
     margin: 0;
     list-style: none;
-    background: url(shoes_images/checked.png) left center no-repeat;
+    background: url(checked.png) left center no-repeat;
     background-size: 18px;
     padding-left: 1.7rem;
     margin: 0.4rem 0;

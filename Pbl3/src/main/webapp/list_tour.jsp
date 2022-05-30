@@ -68,18 +68,19 @@
 				
 	          <div class="col d-flex flex-column align-items-center justify-content-center product-item my-3">
 	            <div class="product">
-	              <a href="#"><img src="${t.img }" alt="" /></a>
+	              <a href="detail_tour?id_tour=${t.id_tour }"><img src="${t.img }" alt="" /></a>
 	              <ul class="d-flex align-items-center justify-content-center list-unstyled icons">
-	                <li class="icon">
-	                  <span class="fas fa-expand-arrows-alt"></span>
-	                </li>
+					<a href="detail_tour?id_tour=${t.id_tour }"><li class="icon">
+		                  <span class="fas fa-expand-arrows-alt"></span>
+		                </li>
+		            </a>
 	                <li class="icon mx-3"><span class="far fa-heart"></span></li>
 	                <li class="icon"><span class="fas fa-shopping-bag"></span></li>
 	              </ul>
 	            </div>
 	            <!--<div class="tag bg-red">sale</div>-->
 	            <div class="title pt-4 pb-1">
-	            	<a href="#">${t.name_tour }</a>
+	            	<a href="detail_tour?id_tour=${t.id_tour }">${t.name_tour }</a>
 	            </div>
 	            <div class="d-flex align-content-center justify-content-center">
 	              <span class="fas fa-star"></span>

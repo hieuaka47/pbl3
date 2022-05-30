@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Tour {
 	private int id_tour;
-	private int id_cate;
+	private Category_tour cateID;
 	private String name_tour;
 	private String img;
 	private Double price;
@@ -21,10 +21,12 @@ public class Tour {
 		
 	}
 
-	public Tour(int id_tour, int id_cate, String name_tour, String img, Double price, String duration, Date date_start,
-			String pickup_locations, int quantity_max_people, int quantity_max_tour, String describe, String schedule) {
+	public Tour(int id_tour, Category_tour cateID, String name_tour, String img, Double price, String duration,
+			Date date_start, String pickup_locations, int quantity_max_people, int quantity_max_tour, String describe,
+			String schedule) {
+		super();
 		this.id_tour = id_tour;
-		this.id_cate = id_cate;
+		this.cateID = cateID;
 		this.name_tour = name_tour;
 		this.img = img;
 		this.price = price;
@@ -45,12 +47,12 @@ public class Tour {
 		this.id_tour = id_tour;
 	}
 
-	public int getId_cate() {
-		return id_cate;
+	public Category_tour getCateID() {
+		return cateID;
 	}
 
-	public void setId_cate(int id_cate) {
-		this.id_cate = id_cate;
+	public void setCateID(Category_tour cateID) {
+		this.cateID = cateID;
 	}
 
 	public String getName_tour() {
@@ -135,10 +137,12 @@ public class Tour {
 
 	@Override
 	public String toString() {
-		return "Tour [id_tour=" + id_tour + ", id_cate=" + id_cate + ", name_tour=" + name_tour + ", img=" + img
+		return "Tour [id_tour=" + id_tour + ", cateID=" + cateID + ", name_tour=" + name_tour + ", img=" + img
 				+ ", price=" + price + ", duration=" + duration + ", date_start=" + date_start + ", pickup_locations="
 				+ pickup_locations + ", quantity_max_people=" + quantity_max_people + ", quantity_max_tour="
 				+ quantity_max_tour + ", describe=" + describe + ", schedule=" + schedule + "]";
 	}
+
+	
 
 }

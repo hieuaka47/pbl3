@@ -1,3 +1,4 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -5,7 +6,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Product Card/Page</title>
+    <title>Detail Tour</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/css/style_detail_tour.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
@@ -20,39 +21,39 @@
         <div class = "product-imgs">
           <div class = "img-display">
             <div class = "img-showcase">
-              <img src = "assets/img/tour/bantayvang.jpg" alt = "shoe image">
-              <img src = "assets/img/tour/bantayvang.jpg" alt = "shoe image">
-              <img src = "assets/img/tour/bantayvang.jpg" alt = "shoe image">
-              <img src = "assets/img/tour/nguhanhson.jpg" alt = "shoe image">
+              <img src = "${detail_tour.img }" >
+              <img src = "${detail_tour.img }" >
+              <img src = "${detail_tour.img }" >
+              <img src = "${detail_tour.img }" >
             </div>
           </div>
           <div class = "img-select">
             <div class = "img-item">
               <a href = "#" data-id = "1">
-                <img src = "assets/img/tour/bantayvang.jpg" alt = "shoe image">
+                <img src = "${detail_tour.img }" alt = "shoe image">
               </a>
             </div>
             <div class = "img-item">
               <a href = "#" data-id = "2">
-                <img src = "assets/img/tour/bantayvang.jpg" alt = "shoe image">
+                <img src = "${detail_tour.img }" alt = "shoe image">
               </a>
             </div>
             <div class = "img-item">
               <a href = "#" data-id = "3">
-                <img src = "assets/img/tour/bantayvang.jpg" alt = "shoe image">
+                <img src = "${detail_tour.img }" alt = "shoe image">
               </a>
             </div>
             <div class = "img-item">
               <a href = "#" data-id = "4">
-                <img src = "assets/img/tour/nguhanhson.jpg" alt = "shoe image">
+                <img src = "${detail_tour.img }" alt = "shoe image">
               </a>
             </div>
           </div>
         </div>
         <!-- card right -->
         <div class = "product-content">
-          <h2 class = "product-title">nike shoes</h2>
-          <a href = "#" class = "product-link">visit nike store</a>
+          <h2 class = "product-title">${detail_tour.name_tour }</h2>
+          <a href = "#" class = "product-link">booking tour !!! <3</a>
           <div class = "product-rating">
             <i class = "fas fa-star"></i>
             <i class = "fas fa-star"></i>
@@ -63,20 +64,23 @@
           </div>
 
           <div class = "product-price">
-            <p class = "last-price">Old Price: <span>$257.00</span></p>
-            <p class = "new-price">New Price: <span>$249.00 (5%)</span></p>
+            <p class = "last-price">Old Price: <span>5990000 đ</span></p>
+            <p class = "new-price">New Price: <span>${detail_tour.price }</span></p>
           </div>
 
           <div class = "product-detail">
-            <h2>about this item: </h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eveniet veniam tempora fuga tenetur placeat sapiente architecto illum soluta consequuntur, aspernatur quidem at sequi ipsa!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, perferendis eius. Dignissimos, labore suscipit. Unde.</p>
+            <h2>about this tour: </h2>
+            <p> 
+            	Tour ${detail_tour.name_tour } với hành trình thú vị hứa hẹn 
+            	sẽ là chuyến đi ý nghĩa nhất cho quý khách cùng gia đình, đưa du khách và gia đình khám phá những điểm đến đẹp nhất nơi đây <3 !
+            	Hãy nhanh tay đăng ký tour để được trải nghiệm chương trình tour hấp dẫn với mức giá vô cùng ưu đãi! 
+           	</p>
             <ul>
-              <li>Color: <span>Black</span></li>
-              <li>Available: <span>in stock</span></li>
-              <li>Category: <span>Shoes</span></li>
-              <li>Shipping Area: <span>All over the world</span></li>
-              <li>Shipping Fee: <span>Free</span></li>
+              <li>Tour duration: <span>${detail_tour.duration }</span></li>
+              <li>Pick up location: <span>${detail_tour.pickup_locations }</span></li>
+              <li>Departure day: <span>${detail_tour.date_start }</span></li>
+              <li> Tour Category: <span>${detail_tour.cateID.name_cate }</span></li>
+              <li>Slot available: <span>${detail_tour.quantity_max_tour }</span></li>
             </ul>
           </div>
 
@@ -109,8 +113,9 @@
         </div>
       </div>
     </div>
-
+	
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
     <script src="assets/js/script_detail_tour.js"></script>
+    <jsp:include page="footer_home.jsp"></jsp:include>
   </body>
 </html>
