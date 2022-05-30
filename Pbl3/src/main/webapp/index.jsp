@@ -68,14 +68,6 @@
               <c:if test = "${sessionScope.acc == null }">
               	  <li class="nav-item px-3 px-xl-4"><a class="btn btn-outline-dark order-1 order-lg-0 fw-medium" href="registration.jsp">Sign Up</a></li>
               </c:if>
-              
-             <!--
-              <li class="nav-item dropdown px-3 px-lg-0"> <a class="d-inline-block ps-0 py-2 pe-3 text-decoration-none dropdown-toggle fw-medium" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">EN</a> 
-			  	<ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg" style="border-radius:0.3rem;" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#!">EN</a></li>
-                  <li><a class="dropdown-item" href="#!">BN</a></li>
-                </ul>
-			 -->
               </li>
             </ul>
           </div>

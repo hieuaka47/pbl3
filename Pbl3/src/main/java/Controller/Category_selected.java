@@ -11,29 +11,28 @@ import javax.servlet.http.HttpServletResponse;
 
 import DAO.Category_tourDAOImpl;
 import DAO.TourDAOImpl;
-import Model.Tour;
 import Model.Category_tour;
+import Model.Tour;
 
 /**
- * Servlet implementation class List_tour
+ * Servlet implementation class Category_selected
  */
-@WebServlet("/list_tour")
-public class List_tour extends HttpServlet {
+@WebServlet("/category_selected")
+public class Category_selected extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private TourDAOImpl tourDAO = new TourDAOImpl();
 	private Category_tourDAOImpl category_tourDAO = new Category_tourDAOImpl();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
+		String id_cate = request.getParameter("id_cate");
+		List<Tour> list = tourDAO.getListByCategory(Integer.parseInt(id_cate));
 		List<Category_tour> listC = category_tourDAO.getAllCategory();
-		List<Tour> listT = tourDAO.getAllTour();
 		
 		request.setAttribute("listC", listC);
-		request.setAttribute("listT", listT);
-		request.setAttribute("tagAll", "all");
+		request.setAttribute("listT", list);
+		request.setAttribute("tag", Integer.parseInt(id_cate));
 		request.getRequestDispatcher("/list_tour.jsp").forward(request, response);
 	}
-	
-
 
 }

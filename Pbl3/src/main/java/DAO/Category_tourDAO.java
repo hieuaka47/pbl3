@@ -14,7 +14,7 @@ public interface Category_tourDAO {
 	// danh sach
 	public List<Category_tour> getAllCategory();
 
-	public Category_tour getCategory(int id_cate);
+	public Category_tour getCategoryById(int id_cate);
 	
 	public void updateCategory(Category_tour c);
 

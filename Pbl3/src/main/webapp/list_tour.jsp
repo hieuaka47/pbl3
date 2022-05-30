@@ -51,14 +51,12 @@
               <span class="fas fa-bars"></span>
             </button>
             <div class="collapse navbar-collapse collapse1 navbar-collapse1" id="myNav">
-              <div class="navbar-nav navbar-nav ms-auto 
+              <div id="nav-a" class="navbar-nav navbar-nav ms-auto 
               navbar-nav1 navbar-nav1 ms-auto1">
-                <a class="nav-link nav-link active
-                  nav-link1 nav-link1 active1" aria-current="page" href="#">All</a>
+                <a ${tagAll != null ? ' class="nav-link nav-link nav-link1 active"' : 'class="nav-link nav-link nav-link1"'} aria-current="page" href="list_tour">All</a>
                 <c:forEach items="${listC }" var="c">
-                	<a class="nav-link nav-link nav-link1 nav-link1" href="#">${c.name_cate }</a>
+                	<a ${tag == c.id_cate ? ' class="nav-link nav-link1 active"' : 'class="nav-link nav-link1"'} href="category_selected?id_cate=${c.id_cate }">${c.name_cate }</a>
                 </c:forEach>
-
               </div>
             </div>
           </div>
@@ -99,7 +97,7 @@
         </div>
       <!-- EMD DEMO HTML -->
     </main>
-
+	<jsp:include page="footer_home.jsp"></jsp:include>
 
     <!-- Bootstrap 5 JS -->
     <script

@@ -79,7 +79,7 @@ public class Category_tourDAOImpl implements Category_tourDAO {
 	}
 
 	@Override
-	public Category_tour getCategory(int id) {
+	public Category_tour getCategoryById(int id) {
 		Connection con = DBConnect.getConnection();
 		String sql = "select * from category_tour where id_cate='" + id + "'";
 		Category_tour c = new Category_tour();
