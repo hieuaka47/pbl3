@@ -50,6 +50,17 @@
             >
               <span class="fas fa-bars"></span>
             </button>
+            
+	          <div class="search">
+	            <a href="">
+	              <i class="fas fa-search"></i>
+	            </a>
+	            <div class="input">
+	              <input name="txt_search" type="text" id="mySearch" placeholder="Search">
+	            </div>
+	            <span class="clear" onclick="document.getElementById('mySearch').value = ''"></span>
+	          </div>
+            
             <div class="collapse navbar-collapse collapse1 navbar-collapse1" id="myNav">
               <div id="nav-a" class="navbar-nav navbar-nav ms-auto 
               navbar-nav1 navbar-nav1 ms-auto1">

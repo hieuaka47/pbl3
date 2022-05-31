@@ -17,6 +17,6 @@ public interface TourDAO {
 	
 	public Tour getTour(int id_tour);
 	
-	public List<Tour> searchList(String name_tour, String name_cate);
+	public List<Tour> searchTour(String tour_name);
 
 }

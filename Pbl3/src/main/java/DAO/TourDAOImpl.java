@@ -118,19 +118,45 @@ public class TourDAOImpl implements TourDAO {
 	}
 
 	@Override
-	public List<Tour> searchList(String name_tour, String name_cate) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Tour> searchTour(String tour_name) {
+		Connection con = DBConnect.getConnection();
+		String query = "select * from tour inner join category_tour on category_tour.id_cate = tour.id_cate where tour.name_tour like '%" + tour_name + "%'";
+		List<Tour> list = new ArrayList<Tour>();
+		try {
+			PreparedStatement ps = (PreparedStatement) con
+					.prepareStatement(query);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				int id_tour = rs.getInt("id_tour");
+				Category_tour cateID = new Category_tour(rs.getInt("id_cate"), rs.getString("name_cate"));
+				String name_tour = rs.getString("name_tour");
+				String img = rs.getString("img");
+				Double price = rs.getDouble("price");
+				String duration = rs.getString("duration");
+				Date date_start = rs.getDate("date_start");
+				String pickup_locations = rs.getString("pickup_locations");
+				int quantity_max_people = rs.getInt("quantity_max_people");
+				int quantity_max_tour = rs.getInt("quantity_max_tour");
+				String describe = rs.getString("describe");
+				String schedule = rs.getString("schedule");
+				list.add(new Tour(id_tour, cateID, name_tour,
+						img, price, duration, date_start,pickup_locations,quantity_max_people,
+						quantity_max_tour,describe,schedule));
+			}
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	
 	}
 	
 	public static void main(String[] args) {
 		TourDAOImpl tourDAO = new TourDAOImpl();
-//		List<Tour> list = tourDAO.getListByCategory(1);
-//		for(Tour t:list){
-//		    System.out.println(t);
-//		}
-		Tour t = tourDAO.getTour(2);
-		System.out.println(t);
+		List<Tour> list = tourDAO.searchTour("Đại học");
+		for(Tour t:list){
+		    System.out.println(t);
+		}
 	}
 
 }
