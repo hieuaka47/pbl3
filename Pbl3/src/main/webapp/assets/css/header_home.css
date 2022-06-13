@@ -2485,8 +2485,8 @@ fieldset:disabled .btn {
 }
 
 .py-5 {
-    padding-top: 2.5rem !important;
-    padding-bottom: 2.5rem !important;
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
 }
 
 .pt-2 {
@@ -2831,4 +2831,50 @@ label {
   -webkit-transform: translateX(4px);
   -ms-transform: translateX(4px);
   transform: translateX(4px);
+}
+.nav__listitem {
+  list-style: none;
+  font-weight: 500;
+  position: relative;
+  padding: 1.5rem 1rem;
+  cursor: pointer;
+}
+
+.nav__listitem:hover ul,
+.nav__listitem:focus ul {
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav__listitemdrop {
+  position: absolute;
+  top: 5rem;
+  left: 0.3rem;
+  box-shadow: 0 0 10px #e1e5ee;
+  background-color: white;
+  border-radius: 0.2rem;
+  width: 12rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 200ms ease-in-out;
+}
+
+.nav__listitemdrop li {
+  list-style: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.2rem;
+  transition: background-color 200ms ease-in-out;
+}
+
+.nav__listitemdrop li:hover,
+.nav__listitemdrop li:focus {
+	text-decoration: none;
+  background-color: #fce4ec;
+}
+a {
+	text-decoration: none !important;
 }

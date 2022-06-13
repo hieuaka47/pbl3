@@ -13,5 +13,8 @@ public interface UserDAO {
 	public void updateUser(User u);
 	
 	public User getUser(String username);
-
+	
+	public User findUserByPhone(String phone_user);
+	
+	public User findUserByEmail(String phone_user);
 }

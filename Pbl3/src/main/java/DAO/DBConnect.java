@@ -4,8 +4,16 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class DBConnect {
+	private static DBConnect instance;
+	
+	public static DBConnect getInstance() {
+		if (instance == null) {
+			instance = new DBConnect();
+		}
+		return instance;
+	} 
 
-	public static Connection getConnection() {
+	public Connection getConnection() {
 		Connection cons = null;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -15,10 +23,6 @@ public class DBConnect {
 			e.printStackTrace();
 		}
 		return cons;
-	}
-	
-	public static void main(String[] args) {
-		System.out.println(getConnection());
 	}
 
 }

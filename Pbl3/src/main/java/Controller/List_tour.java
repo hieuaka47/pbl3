@@ -25,15 +25,30 @@ public class List_tour extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
-		List<Category_tour> listC = category_tourDAO.getAllCategory();
-		List<Tour> listT = tourDAO.getAllTour();
+		int count = tourDAO.getTotalTour();
+		int endPage = count/9;
+		if (count % 9 != 0) {
+			endPage++;
+		}
 		
+		String indexPage = request.getParameter("index");
+		if (indexPage == null || indexPage.equals("0")) {
+			indexPage = "1";
+		}
+		if (indexPage.equals(String.valueOf(endPage))){
+			indexPage = String.valueOf(endPage);
+		}
+		int index = Integer.parseInt(indexPage);
+		
+		List<Tour> listT = tourDAO.pagingTour(index);
+		List<Category_tour> listC = category_tourDAO.getAllCategory();
+		
+		request.setAttribute("endPage", endPage);
 		request.setAttribute("listC", listC);
 		request.setAttribute("listT", listT);
+		request.setAttribute("tagP", index);
 		request.setAttribute("tagAll", "all");
 		request.getRequestDispatcher("/list_tour.jsp").forward(request, response);
 	}
 	
-
-
 }

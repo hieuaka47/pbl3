@@ -94,7 +94,7 @@ body {
 
 .search .input input {
     position: absolute;
-    top: 0;
+    top: -24px;
     width: 17.5rem;
     height: 100%;
     border: none;
@@ -107,6 +107,56 @@ body {
 
 .search .input input, select, textarea{
     color: #fff;
+}
+
+.search button {
+	border-style: none;
+    border-color: #2f3640;
+    background: #2f3640;
+}
+
+.page-number {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 3rem;
+}
+
+.page-number a {
+    text-decoration: none !important;
+    font-size: 1rem;
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 18%;
+}
+
+/*
+.page-number a:hover,
+.page-number a:nth-child(2) {
+    background-color: #f79f1f;
+    color: white;
+    transition: 200ms ease;
+}
+*/
+
+.page-number a:hover,
+.page-number a.active {
+    background-color: #f79f1f;
+    color: white;
+    transition: 200ms ease;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: #fff;
+  -webkit-box-shadow: 0 0 0px 1000px #2f3640 inset;
 }
 
 .clear {
@@ -178,7 +228,7 @@ body {
 }
 
 .container .product-item .product .icons .icon:hover {
-    background-color: #b71c1c;
+    background-color: #f79f1f;
     color: #fff;
 }
 
@@ -216,7 +266,12 @@ body {
 .container .product-item .title a {
     color: #212529;
     text-decoration: none;
-    display: flex;
+    /*display: flex;*/
+    display: inline-block;
+      overflow:hidden; 
+	  white-space:nowrap; 
+	  text-overflow:ellipsis; 
+	  width:23rem; 
     justify-content: center;
     flex-direction: column;
     text-align: center; 

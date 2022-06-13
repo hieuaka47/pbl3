@@ -14,14 +14,14 @@
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-
+<jsp:include page="header_home.jsp"></jsp:include>
 <input type="hidden"id="status" value="<%= request.getAttribute("status") %>">
 
 	<div class="main">
 
 		<!-- Sign up form -->
 		<section class="signup">
-			<div class="container">
+			<div class="container1">
 				<div class="signup-content">
 					<div class="signup-form">
 						<h2 class="form-title">Sign up</h2>
@@ -31,7 +31,12 @@
 							<div class="form-group">
 								<label for="name"><i
 									class="zmdi zmdi-account material-icons-name"></i></label> <input
-									type="text" name="name" id="name" placeholder="Your Name" />
+									type="text" name="name" id="name" placeholder="Username" />
+							</div>
+							<div class="form-group">
+								<label for="yourname"><i
+									class="zmdi zmdi-account material-icons-name"></i></label> <input
+									type="text" name="yourname" id="yourname" placeholder="Your Name" />
 							</div>
 							<div class="form-group">
 								<label for="email"><i class="zmdi zmdi-email"></i></label> <input
@@ -56,11 +61,11 @@
 							</div>
 							<div class="form-group">
 								<label for="gender"><i class="zmdi zmdi-male"></i> Male</label>
-								<input type="radio" name="gender" id="gender" value="true" >
+								<input type="radio" name="gender" id="gender" value="0" >
 							</div>
 							<div class="form-group">
 								<label for="gender"><i class="zmdi zmdi-female"></i> Female</label>
-								<input type="radio" name="gender" id="gender" value="false" >
+								<input type="radio" name="gender" id="gender" value="1" >
 							</div>
 							<div class="form-group">
 								<label for="number"><i class="zmdi zmdi-account-box-phone"></i></label>
@@ -96,7 +101,7 @@
 			</div>
 		</section>
 
-
+	<jsp:include page="footer_home.jsp"></jsp:include>
 	</div>
 	<!-- JS -->
 	<script src="vendor/jquery/jquery.min.js"></script>

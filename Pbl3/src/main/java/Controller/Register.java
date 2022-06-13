@@ -26,9 +26,15 @@ public class Register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UserDAOImpl userDAO = new UserDAOImpl();
 	
+    @Override
+    	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    	req.getRequestDispatcher("registration.jsp").forward(req, resp);
+    }
+	
 	@SuppressWarnings("unused")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("name");
+		String hoten = request.getParameter("yourname");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		java.sql.Date ngaysinh= null;
@@ -42,7 +48,8 @@ public class Register extends HttpServlet {
 		String gioitinh = request.getParameter("gender");
 		String sdt = request.getParameter("number");
 		String diachi = request.getParameter("address");
-		
+		System.out.println(gioitinh);
+		System.out.println(Boolean.valueOf(gioitinh));
 		String status = "";
 		
 		if (username.equals("") || email.equals("") || password.equals("") || sdt.equals("") || diachi.equals("")) {
@@ -64,7 +71,7 @@ public class Register extends HttpServlet {
 				HttpSession session = request.getSession();
 //				session.setAttribute("cart", cart);
 				session.setAttribute("status","successReg");
-				userDAO.addUser(new User(0, username, email, password, ngaysinh, gioitinh, sdt, diachi, "2"));
+				userDAO.addUser(new User(0, username, hoten, email, password, ngaysinh, Boolean.valueOf(gioitinh), sdt, diachi, "2"));
 	            response.sendRedirect("index.jsp");
 			} 
 			else {

@@ -5,10 +5,11 @@ import java.sql.Date;
 public class User {
 	private int user_id;
 	private String username;
+	private String hoten;
 	private String email;
 	private String password;
 	private java.sql.Date ngaysinh;
-	private String gioitinh;
+	private boolean gioitinh;
 	private String sdt;
 	private String diachi;
 	private String role;
@@ -17,10 +18,12 @@ public class User {
 		
 	}
 
-	public User(int user_id, String username, String email, String password, Date ngaysinh, String gioitinh, String sdt,
-			String diachi, String role) {
+	public User(int user_id, String username, String hoten, String email, String password, Date ngaysinh,
+			boolean gioitinh, String sdt, String diachi, String role) {
+		super();
 		this.user_id = user_id;
 		this.username = username;
+		this.hoten = hoten;
 		this.email = email;
 		this.password = password;
 		this.ngaysinh = ngaysinh;
@@ -29,6 +32,8 @@ public class User {
 		this.diachi = diachi;
 		this.role = role;
 	}
+
+
 
 	public int getUser_id() {
 		return user_id;
@@ -45,7 +50,15 @@ public class User {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	
+
+	public String getHoten() {
+		return hoten;
+	}
+
+	public void setHoten(String hoten) {
+		this.hoten = hoten;
+	}
+
 	public String getEmail() {
 		return email;
 	}
@@ -70,11 +83,11 @@ public class User {
 		this.ngaysinh = ngaysinh;
 	}
 
-	public String getGioitinh() {
+	public boolean isGioitinh() {
 		return gioitinh;
 	}
 
-	public void setGioitinh(String gioitinh) {
+	public void setGioitinh(boolean gioitinh) {
 		this.gioitinh = gioitinh;
 	}
 
@@ -104,10 +117,8 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [user_id=" + user_id + ", username=" + username + ", email=" + email + ", password=" + password
-				+ ", ngaysinh=" + ngaysinh + ", gioitinh=" + gioitinh + ", sdt=" + sdt + ", diachi=" + diachi
-				+ ", role=" + role + "]";
+		return "User [user_id=" + user_id + ", username=" + username + ", hoten=" + hoten + ", email=" + email
+				+ ", password=" + password + ", ngaysinh=" + ngaysinh + ", gioitinh=" + gioitinh + ", sdt=" + sdt
+				+ ", diachi=" + diachi + ", role=" + role + "]";
 	}
-	
-	
 }

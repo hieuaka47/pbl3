@@ -1,4 +1,5 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -65,7 +66,9 @@
 
           <div class = "product-price">
             <p class = "last-price">Old Price: <span>5990000 đ</span></p>
-            <p class = "new-price">New Price: <span>${detail_tour.price }</span></p>
+            <p class = "new-price">New Price: <span>	            	
+            		<fmt:setLocale value = "vi_VN"/>
+         			<fmt:formatNumber value = "${detail_tour.price }" type = "currency"/></span></p>
           </div>
 
           <div class = "product-detail">
@@ -78,7 +81,9 @@
             <ul>
               <li>Tour duration: <span>${detail_tour.duration }</span></li>
               <li>Pick up location: <span>${detail_tour.pickup_locations }</span></li>
-              <li>Departure day: <span>${detail_tour.date_start }</span></li>
+              <!--  <li>Departure day: <span>${detail_tour.date_start }</span></li>-->
+              <li>Departure day: <span><fmt:formatDate pattern = "dd-MM-yyyy" 
+         							value = "${detail_tour.date_start}" /></span></li>
               <li> Tour Category: <span>${detail_tour.cateID.name_cate }</span></li>
               <li>Slot available: <span>${detail_tour.quantity_max_tour }</span></li>
             </ul>

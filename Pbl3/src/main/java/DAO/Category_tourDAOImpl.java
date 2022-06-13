@@ -14,7 +14,8 @@ public class Category_tourDAOImpl implements Category_tourDAO {
 
 	@Override
 	public List<Category_tour> getAllCategory() {
-		Connection con = DBConnect.getConnection();
+		DBConnect db = DBConnect.getInstance();
+		Connection con = db.getConnection();
 		String sql = "select * from category_tour";
 		List<Category_tour> list = new ArrayList<Category_tour>();
 		try {
@@ -35,7 +36,8 @@ public class Category_tourDAOImpl implements Category_tourDAO {
 
 	@Override
 	public void addCategory(Category_tour c) {
-		Connection con = DBConnect.getConnection();
+		DBConnect db = DBConnect.getInstance();
+		Connection con = db.getConnection();
 		String sql = "insert into category_tour value(?,?)";
 		PreparedStatement ps;
 		try {
@@ -64,7 +66,8 @@ public class Category_tourDAOImpl implements Category_tourDAO {
 
 	@Override
 	public void delCategory(int id_cate) {
-		Connection con = DBConnect.getConnection();
+		DBConnect db = DBConnect.getInstance();
+		Connection con = db.getConnection();
 		String sql = "delete from category_tour where id_cate='" + id_cate
 				+ "'";
 		try {
@@ -80,7 +83,8 @@ public class Category_tourDAOImpl implements Category_tourDAO {
 
 	@Override
 	public Category_tour getCategoryById(int id) {
-		Connection con = DBConnect.getConnection();
+		DBConnect db = DBConnect.getInstance();
+		Connection con = db.getConnection();
 		String sql = "select * from category_tour where id_cate='" + id + "'";
 		Category_tour c = new Category_tour();
 		try {
@@ -101,7 +105,8 @@ public class Category_tourDAOImpl implements Category_tourDAO {
 
 	@Override
 	public void updateCategory(Category_tour c) {
-		Connection con = DBConnect.getConnection();
+		DBConnect db = DBConnect.getInstance();
+		Connection con = db.getConnection();
 		String sql = "update category set name_cate=? where id_cate=?";
 		try {
 			PreparedStatement ps = (PreparedStatement) con

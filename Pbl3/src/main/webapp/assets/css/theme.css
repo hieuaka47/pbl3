@@ -9257,8 +9257,8 @@ fieldset:disabled .btn {
 }
 
 .py-5 {
-  padding-top: 2.5rem !important;
-  padding-bottom: 2.5rem !important;
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
 }
 
 .py-6 {
@@ -19642,3 +19642,114 @@ iframe {
 -----------------------------------------------*/
 
 /*# sourceMappingURL=theme.css.map */
+#progress {
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  height: 70px;
+  width: 70px;
+  display: none;
+  place-items: center;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 1000;
+}
+#progress-value {
+  display: block;
+  height: calc(100% - 15px);
+  width: calc(100% - 15px);
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 35px;
+  color: #001a2e;
+}
+
+
+.swiper {
+	position: relative;
+    width: 70%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.swiper-button-next, .swiper-button-prev {
+	opacity: 0.5;
+	color: #fff;
+}
+
+.nav__listitem {
+  list-style: none;
+  font-weight: 500;
+  position: relative;
+  padding: 1.5rem 1rem;
+  cursor: pointer;
+}
+
+.nav__listitem:hover ul,
+.nav__listitem:focus ul {
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav__listitemdrop {
+  position: absolute;
+  top: 5rem;
+  left: 0.3rem;
+  box-shadow: 0 0 10px #e1e5ee;
+  background-color: white;
+  border-radius: 0.2rem;
+  width: 12rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 200ms ease-in-out;
+}
+
+.nav__listitemdrop li {
+  list-style: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.2rem;
+  transition: background-color 200ms ease-in-out;
+}
+
+.nav__listitemdrop li:hover,
+.nav__listitemdrop li:focus {
+	text-decoration: none;
+  background-color: #fce4ec;
+}
+a {
+	text-decoration: none !important;
+}

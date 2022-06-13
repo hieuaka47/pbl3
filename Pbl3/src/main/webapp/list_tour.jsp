@@ -1,4 +1,5 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -27,6 +28,7 @@
 </head>
 
 <body>
+	  <input type="hidden"id=cart_status value="<%= session.getAttribute("cart_status") %>">
 	  <jsp:include page="header_home.jsp"></jsp:include>
 	  <main>
       <!-- DEMO HTML -->
@@ -51,15 +53,18 @@
               <span class="fas fa-bars"></span>
             </button>
             
-	          <div class="search">
-	            <a href="">
-	              <i class="fas fa-search"></i>
-	            </a>
+			<form action="search_tour" method="post">
+			  <div class="search">
+					<!--  <a href="search_tour">
+		              <i class="fas fa-search"></i>
+		            </a>-->
+		        <button type="submit"><i class="fas fa-search"></i></button>
 	            <div class="input">
-	              <input name="txt_search" type="text" id="mySearch" placeholder="Search">
+	              <input value="${txt_search_value }" name="txt_search" type="text" id="mySearch" placeholder="Search">
 	            </div>
 	            <span class="clear" onclick="document.getElementById('mySearch').value = ''"></span>
 	          </div>
+			</form>
             
             <div class="collapse navbar-collapse collapse1 navbar-collapse1" id="myNav">
               <div id="nav-a" class="navbar-nav navbar-nav ms-auto 
@@ -77,8 +82,8 @@
         
 			<c:forEach items="${listT }" var="t"  >
 				
-	          <div class="col d-flex flex-column align-items-center justify-content-center product-item my-3">
-	            <div class="product">
+	          <div class="col tour-items d-flex flex-column align-items-center justify-content-center product-item my-3">
+	            <div  class="product">
 	              <a href="detail_tour?id_tour=${t.id_tour }"><img src="${t.img }" alt="" /></a>
 	              <ul class="d-flex align-items-center justify-content-center list-unstyled icons">
 					<a href="detail_tour?id_tour=${t.id_tour }"><li class="icon">
@@ -86,11 +91,11 @@
 		                </li>
 		            </a>
 	                <li class="icon mx-3"><span class="far fa-heart"></span></li>
-	                <li class="icon"><span class="fas fa-shopping-bag"></span></li>
+	                <li value="${t.id_tour }"  class="icon"><span class="fas fa-shopping-bag"></span></li>
 	              </ul>
 	            </div>
 	            <!--<div class="tag bg-red">sale</div>-->
-	            <div class="title pt-4 pb-1">
+	            <div class="title pt-4 pb-1 name-tour">
 	            	<a href="detail_tour?id_tour=${t.id_tour }">${t.name_tour }</a>
 	            </div>
 	            <div class="d-flex align-content-center justify-content-center">
@@ -100,13 +105,25 @@
 	              <span class="fas fa-star"></span>
 	              <span class="fas fa-star"></span>
 	            </div>
-	            <div class="price">${t.price } <span>d</span></div>
+	            <div class="price">         
+	            	<fmt:setLocale value = "vi_VN"/>
+         			<fmt:formatNumber value = "${t.price}" type = "currency"/>
+         		 </div>
 	            <div class="quantity_empty">Số chỗ còn nhận : <span>${t.quantity_max_tour }</span></div>
 	          </div>
 			
 			</c:forEach>
 			</div>
         </div>
+	     <div class="page-number">
+	      <c:if test="${tagP > 1 }"><a href="list_tour?index=${tagP-1}">&laquo;</a></c:if>
+	      <c:if test="${tagP == 1 }"><a href="list_tour?index=${tagP}">&laquo;</a></c:if>
+	      <c:forEach begin="1" end="${endPage }" var="i">
+	      	<a ${tagP == i ? ' class="active"' : 'class=""'} href="list_tour?index=${i }">${i }</a>
+	      </c:forEach>
+	      <c:if test="${tagP < endPage }"><a href="list_tour?index=${tagP+1}">&raquo;</a></c:if>
+	      <c:if test="${tagP == endPage }"><a href="list_tour?index=${tagP}">&raquo;</a></c:if>
+	    </div>
       <!-- EMD DEMO HTML -->
     </main>
 	<jsp:include page="footer_home.jsp"></jsp:include>
@@ -117,5 +134,10 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+    <script src="assets/js/jquery-3.6.0.js" type="text/javascript"></script>
+    <script src="assets/js/ajax.js" type="text/javascript"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<link rel="stylesheet"href="alert/dist/sweetalert.css">
+
 </body>
 </html>
