@@ -15,6 +15,21 @@ $(document).ready(function() {
 	})
    })
    
+   	$(".table-responsive table thead tr th").click(function(event){
+		event.preventDefault();
+    var col = $(this).val();
+    $.ajax ({
+      url: 'table_user_handel',
+      type: 'GET',
+      data: {
+        col: col
+      },
+      success: function(data){
+        
+      }
+	})
+   })
+   
    	$(".cart_list tr td li").click(function(event){
 		event.preventDefault();
     var key = $(this).val();

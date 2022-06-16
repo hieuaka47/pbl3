@@ -43,7 +43,7 @@ public class SendSMSToUser extends HttpServlet {
 				request.setAttribute("message", "incorrect");
 			} else {
 				String ACCOUNT_SID = "AC35c17f7117bce4469d5193af1f7c6c30";
-				String AUTH_TOKEN = "42d11dc740f1b1346696c35e070ad0bf";
+				String AUTH_TOKEN = "22f8ff5c83786f2cbd69796e95b89a7d";
 				String arr[] = phoneNumber.split("0", 2);
 				Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 		        Message message = Message.creator(

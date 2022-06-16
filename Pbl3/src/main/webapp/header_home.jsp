@@ -35,8 +35,9 @@
 <body>
 	<main>
 		<nav
-			class="navbar navbar-expand-lg navbar-light fixed-top py-5 d-block"
-			data-navbar-on-scroll="data-navbar-on-scroll">
+			class="navbar navbar-expand-lg navbar-light fixed-top py-5 d-block nav-header"
+			data-navbar-on-scroll="data-navbar-on-scroll" ${sessionScope.acc != null ? ' style="padding-bottom: 0 !important;
+    padding-top: 0 !important;"' : 'style=""'}>
 			<div class="container">
 				<a class="navbar-brand" href="index.jsp"><img
 					src="assets/img/logo.svg" height="34" alt="logo" /></a>
@@ -65,7 +66,7 @@
 						</c:if>
 						<c:if test="${sessionScope.acc.role == 1 }">
 							<li class="nav-item px-3 px-xl-4"><a
-								class="nav-link fw-medium" aria-current="page" href="">Manager</a></li>
+								class="nav-link fw-medium" aria-current="page" href="admin_home">Manager</a></li>
 						</c:if>
 
 						<c:if test="${sessionScope.acc != null }">

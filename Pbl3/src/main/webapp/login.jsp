@@ -64,7 +64,7 @@
 									class="form-submit" value="Log in" />
 							</div>
 						</form>
-						<form method="post" action="forgotPassword">
+						<form method="post" action="sendSMS">
 							<div class="popup">
 								<header>
 									<span>Reset Password</span>
@@ -72,12 +72,12 @@
 										<i class="uil uil-times"></i>
 									</div>
 								</header>
-								<p>Enter your email address and we will send you a link to
+								<p>Enter your phone number and we will send you a link to
 									reset your password.</p>
 
 								<div class="field">
 
-									  <input type="email" id="email" name="email" placeholder="Your email" required>
+									  <input type="number" id="phone" name="phone" placeholder="Your email" required>
 								</div>
 								<div class="tag-a">
 

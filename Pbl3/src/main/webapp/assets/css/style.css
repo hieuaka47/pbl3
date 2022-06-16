@@ -250,10 +250,10 @@ body {
   -ms-transform: translate(-50%, -50%); }
 
 .signup {
-  margin-bottom: 50px; }
+  margin-bottom: 0; }
 
 .signup-content {
-	margin-top :4.5rem;
+	margin-top :1.5rem;
   padding: 75px 0; }
 
 .signup-form, .signup-image, .signin-form, .signin-image {
@@ -776,6 +776,11 @@ header .close:hover{
     border-radius: 0.5rem;
 }
 .tag-a button:hover {
-
 	background: linear-gradient(68.6deg, rgb(252, 165, 241) 1.8%, rgb(181, 255, 255) 100.5%);
+}
+
+.avatar {
+	    object-position: center right;
+    border-radius: 50%;
+    object-fit: cover;
 }

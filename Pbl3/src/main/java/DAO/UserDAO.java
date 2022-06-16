@@ -1,5 +1,7 @@
 package DAO;
 
+import java.util.List;
+
 import Model.User;
 
 public interface UserDAO {
@@ -12,9 +14,13 @@ public interface UserDAO {
 	
 	public void updateUser(User u);
 	
+	public List<User> getAllUser();
+	
 	public User getUser(String username);
 	
 	public User findUserByPhone(String phone_user);
 	
 	public User findUserByEmail(String phone_user);
+	
+	public List<User> sortUser(String col, String mode);
 }

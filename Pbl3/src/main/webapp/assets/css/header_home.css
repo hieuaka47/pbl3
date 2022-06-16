@@ -2683,10 +2683,6 @@ label {
     transition: padding 0.3s linear;
 }
 
-.padding-transition {
-    padding: 1.25rem !important;
-}
-
 .footer-heading-color {
   color: #080809;
 }

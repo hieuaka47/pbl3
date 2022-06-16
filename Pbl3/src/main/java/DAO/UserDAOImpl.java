@@ -5,7 +5,10 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
+import Model.Tour;
 import Model.User;
 
 public class UserDAOImpl implements UserDAO {
@@ -54,11 +57,6 @@ public class UserDAOImpl implements UserDAO {
 		return false;
 	}
 
-	public static void main(String[] args) {
-		UserDAOImpl dao = new UserDAOImpl();
-		System.out.println(dao.findUserByPhone("0915789629"));
-	}
-
 	@Override
 	public boolean login(String username, String password) {
 		DBConnect db = DBConnect.getInstance();
@@ -102,6 +100,36 @@ public class UserDAOImpl implements UserDAO {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	@Override
+	public List<User> getAllUser() {
+		DBConnect db = DBConnect.getInstance();
+		Connection con = db.getConnection();
+		String sql = "select * from user";
+		List<User> list = new ArrayList<User>();
+		try {
+			PreparedStatement ps = (PreparedStatement) con
+					.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				int user_id= rs.getInt("user_id");
+				String username = rs.getString("username");
+				String hoten = rs.getString("hoten");
+				String email = rs.getString("email");
+				String password = rs.getString("password");
+				Date ngaysinh = rs.getDate("ngaysinh");
+				Boolean gioitinh = rs.getBoolean("gioitinh");
+				String sdt = rs.getString("sdt");
+				String diachi = rs.getString("diachi");
+				String role = rs.getString("role");
+				list.add(new User(user_id, username, hoten, email, password, ngaysinh, gioitinh, sdt, diachi, role));
+			}
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 	@Override
@@ -192,6 +220,50 @@ public class UserDAOImpl implements UserDAO {
 			e.printStackTrace();
 		}
 		return u;
+	}
+	
+	@Override
+	public List<User> sortUser(String col, String mode) {
+		DBConnect db = DBConnect.getInstance();
+		Connection con = db.getConnection();
+		String sql = null;
+		if (mode.equals("asc")) {
+			sql = "select * from user order by `" + col + "` asc";
+		} else {
+			sql = "select * from user order by `" + col + "` desc";
+		}
+		List<User> list = new ArrayList<User>();
+		try {
+			PreparedStatement ps = (PreparedStatement) con
+					.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				int user_id= rs.getInt("user_id");
+				String username = rs.getString("username");
+				String hoten = rs.getString("hoten");
+				String email = rs.getString("email");
+				String password = rs.getString("password");
+				Date ngaysinh = rs.getDate("ngaysinh");
+				Boolean gioitinh = rs.getBoolean("gioitinh");
+				String sdt = rs.getString("sdt");
+				String diachi = rs.getString("diachi");
+				String role = rs.getString("role");
+				list.add(new User(user_id, username, hoten, email, password, ngaysinh, gioitinh, sdt, diachi, role));
+			}
+			ps.close();
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	public static void main(String[] args) {
+		UserDAOImpl dao = new UserDAOImpl();
+		List<User> list = dao.sortUser("username", "asc");
+		for (User user : list) {
+			System.out.println(user);
+		}
 	}
 
 }
