@@ -1,6 +1,5 @@
 package Model;
 
-import java.io.Serializable;
 import java.util.Date;
 
 public class Tour {
@@ -13,17 +12,13 @@ public class Tour {
 	private Date date_start;
 	private String pickup_locations;
 	private int quantity_max_people;
-	private int quantity_max_tour;
-	private String describe;
-	private String schedule;
 	
 	public Tour() {
 		
 	}
 
 	public Tour(int id_tour, Category_tour cateID, String name_tour, String img, Double price, String duration,
-			Date date_start, String pickup_locations, int quantity_max_people, int quantity_max_tour, String describe,
-			String schedule) {
+			Date date_start, String pickup_locations, int quantity_max_people) {
 		super();
 		this.id_tour = id_tour;
 		this.cateID = cateID;
@@ -34,9 +29,6 @@ public class Tour {
 		this.date_start = date_start;
 		this.pickup_locations = pickup_locations;
 		this.quantity_max_people = quantity_max_people;
-		this.quantity_max_tour = quantity_max_tour;
-		this.describe = describe;
-		this.schedule = schedule;
 	}
 
 	public int getId_tour() {
@@ -111,38 +103,11 @@ public class Tour {
 		this.quantity_max_people = quantity_max_people;
 	}
 
-	public int getQuantity_max_tour() {
-		return quantity_max_tour;
-	}
-
-	public void setQuantity_max_tour(int quantity_max_tour) {
-		this.quantity_max_tour = quantity_max_tour;
-	}
-
-	public String getDescribe() {
-		return describe;
-	}
-
-	public void setDescribe(String describe) {
-		this.describe = describe;
-	}
-
-	public String getSchedule() {
-		return schedule;
-	}
-
-	public void setSchedule(String schedule) {
-		this.schedule = schedule;
-	}
-
 	@Override
 	public String toString() {
 		return "Tour [id_tour=" + id_tour + ", cateID=" + cateID + ", name_tour=" + name_tour + ", img=" + img
 				+ ", price=" + price + ", duration=" + duration + ", date_start=" + date_start + ", pickup_locations="
-				+ pickup_locations + ", quantity_max_people=" + quantity_max_people + ", quantity_max_tour="
-				+ quantity_max_tour + ", describe=" + describe + ", schedule=" + schedule + "]";
+				+ pickup_locations + ", quantity_max_people=" + quantity_max_people + "]";
 	}
-
-	
 
 }

@@ -17,6 +17,8 @@ public interface TourDAO {
 	
 	public Tour getTour(int id_tour);
 	
-	public List<Tour> searchTour(String tour_name);
+	public void updateTour(Tour t);
+	
+	public void deleteTour(int id);
 
 }

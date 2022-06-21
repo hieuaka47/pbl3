@@ -10,9 +10,23 @@
     <title>Detail Tour</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/css/style_detail_tour.css">
+    <link rel="apple-touch-icon" sizes="180x180"
+	href="assets/img/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32"
+	href="assets/img/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16"
+	href="assets/img/favicons/favicon-16x16.png">
+<link rel="shortcut icon" type="image/x-icon"
+	href="assets/img/favicons/favicon.ico">
+<link rel="manifest" href="assets/img/favicons/manifest.json">
+<link rel="stylesheet"
+	href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<meta name="msapplication-TileImage"
+	content="assets/img/favicons/mstile-150x150.png">
+<meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
   </head>
-  <body>
+  <body style="background: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);">
     
     <jsp:include page="header_home.jsp"></jsp:include>
     
@@ -85,12 +99,10 @@
               <li>Departure day: <span><fmt:formatDate pattern = "dd-MM-yyyy" 
          							value = "${detail_tour.date_start}" /></span></li>
               <li> Tour Category: <span>${detail_tour.cateID.name_cate }</span></li>
-              <li>Slot available: <span>${detail_tour.quantity_max_tour }</span></li>
             </ul>
           </div>
 
           <div class = "purchase-info">
-            <input type = "number" min = "0" value = "1">
             <button type = "button" class = "btn">
               Add to Cart <i class = "fas fa-shopping-cart"></i>
             </button>
@@ -118,9 +130,9 @@
         </div>
       </div>
     </div>
+    <jsp:include page="footer_home.jsp"></jsp:include>
 	
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
     <script src="assets/js/script_detail_tour.js"></script>
-    <jsp:include page="footer_home.jsp"></jsp:include>
   </body>
 </html>

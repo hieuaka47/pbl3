@@ -53,12 +53,12 @@
 					<ul
 						class="navbar-nav ms-auto pt-2 pt-lg-0 font-base align-items-lg-center align-items-start">
 						<li class="nav-item px-3 px-xl-4"><a
-							class="nav-link fw-medium" aria-current="page" href="home">Home</a></li>
+							class="nav-link fw-medium" aria-current="page" ${sessionScope.acc.role == 1 ? 'href="http://localhost:8080/Pbl3/transfer?location=home"' : 'href="home"'}>Home</a></li>
 						<li class="nav-item px-3 px-xl-4"><a
 							class="nav-link fw-medium" aria-current="page"
-							href="list_blog">Blogs</a></li>
+							${sessionScope.acc.role == 1 ? 'href="http://localhost:8080/Pbl3/transfer?location=list_blog"' : 'href="list_blog"'}">Blogs</a></li>
 						<li class="nav-item px-3 px-xl-4"><a
-							class="nav-link fw-medium" aria-current="page" href="list_tour">Tour</a></li>
+							class="nav-link fw-medium" aria-current="page" ${sessionScope.acc.role == 1 ? 'href="http://localhost:8080/Pbl3/transfer?location=list_tour"' : 'href="list_tour?action=viewAll&selected=null"'}>Tour</a></li>
 						<c:if test="${sessionScope.acc.role != 1 }">
 							<li class="nav-item px-3 px-xl-4"><a
 								class="nav-link fw-medium" aria-current="page"
@@ -66,7 +66,7 @@
 						</c:if>
 						<c:if test="${sessionScope.acc.role == 1 }">
 							<li class="nav-item px-3 px-xl-4"><a
-								class="nav-link fw-medium" aria-current="page" href="admin_home">Manager</a></li>
+								class="nav-link fw-medium" aria-current="page" href="admin/admin_home">Manager</a></li>
 						</c:if>
 
 						<c:if test="${sessionScope.acc != null }">
@@ -75,9 +75,11 @@
 								onclick="return false;" href="#">Hello
 									${sessionScope.acc.username }</a>
 								<ul class="nav__listitemdrop">
-									<li><a href="update_user">Your Profile</a></li>
-									<li><a href="">Order</a></li>
-									<li><a href="logout">Log out</a></li>
+									<li><a ${sessionScope.acc.role == 1 ? 'href="http://localhost:8080/Pbl3/transfer?location=update_user"' : 'href="update_user"'}>Your Profile</a></li>
+									<c:if test="${sessionScope.acc.role != 1 }">
+										<li><a href="">Order</a></li>
+									</c:if>
+									<li><a ${sessionScope.acc.role == 1 ? 'href="http://localhost:8080/Pbl3/transfer?location=logout"' : 'href="logout"'}>Log out</a></li>
 								</ul></li>
 						</c:if>
 						<c:if test="${sessionScope.acc == null }">

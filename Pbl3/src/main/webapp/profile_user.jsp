@@ -87,11 +87,6 @@
 						</form>
 					</div>
 					<div class="signup-image">
-						<c:if test="${acc.username == 'hieuAka47' }">
-							<figure >
-								<img class="avatar" src="https://scontent.fdad1-1.fna.fbcdn.net/v/t39.30808-6/280646716_697047524959250_8329997063719637750_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=ktzUDmfOcpoAX-d9K0D&_nc_ht=scontent.fdad1-1.fna&oh=00_AT-3QDN1tveFCv4-kwol6pGhsgrI6nV8PAaQAy-hwFjYJQ&oe=62AE8F5F" alt="sing up image">
-							</figure>
-						</c:if>
 						<figure>
 							<img src="assets/img/signup-image.jpg" alt="sing up image">
 						</figure>

@@ -107,7 +107,7 @@ public class Category_tourDAOImpl implements Category_tourDAO {
 	public void updateCategory(Category_tour c) {
 		DBConnect db = DBConnect.getInstance();
 		Connection con = db.getConnection();
-		String sql = "update category set name_cate=? where id_cate=?";
+		String sql = "update category_tour set name_cate=? where id_cate=?";
 		try {
 			PreparedStatement ps = (PreparedStatement) con
 					.prepareStatement(sql);

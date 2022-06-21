@@ -15,6 +15,8 @@ $(document).ready(function() {
 	})
    })
    
+   $('').attr('href' , 'http://catbloguat.myblog.com');
+   
    	$(".table-responsive table thead tr th").click(function(event){
 		event.preventDefault();
     var col = $(this).val();

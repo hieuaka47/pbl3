@@ -33,12 +33,8 @@ public class TourDAOImpl implements TourDAO {
 				Date date_start = rs.getDate("date_start");
 				String pickup_locations = rs.getString("pickup_locations");
 				int quantity_max_people = rs.getInt("quantity_max_people");
-				int quantity_max_tour = rs.getInt("quantity_max_tour");
-				String describe = rs.getString("describe");
-				String schedule = rs.getString("schedule");
 				listT.add(new Tour(id_tour, cateID, name_tour,
-						img, price, duration, date_start,pickup_locations,quantity_max_people,
-						quantity_max_tour,describe,schedule));
+						img, price, duration, date_start,pickup_locations,quantity_max_people));
 			}
 			con.close();
 		} catch (SQLException e) {
@@ -49,8 +45,67 @@ public class TourDAOImpl implements TourDAO {
 
 	@Override
 	public void addTour(Tour t) {
-		// TODO Auto-generated method stub
+		DBConnect db = DBConnect.getInstance();
+		Connection con = db.getConnection();
+		String query = "insert into tour value(?,?,?,?,?,?,?,?,?)";
+		try {
+			PreparedStatement ps = (PreparedStatement) con
+					.prepareStatement(query);
+			ps.setInt(1, t.getId_tour());
+			ps.setInt(2, t.getCateID().getId_cate());
+			ps.setString(3, t.getName_tour());
+			ps.setString(4, t.getImg());
+			ps.setDouble(5, t.getPrice());
+			ps.setString(6, t.getDuration());
+			ps.setDate(7, (java.sql.Date) t.getDate_start());
+			ps.setString(8, t.getPickup_locations());
+			ps.setInt(9, t.getQuantity_max_people());
+			ps.executeUpdate();
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
+	}
+	
+	@Override
+	public void updateTour(Tour t) {
+		DBConnect db = DBConnect.getInstance();
+		Connection con = db.getConnection();
+		String query = "update tour set id_cate=? ,name_tour=?, img=?, price=?, duration=?, date_start=?, pickup_locations=?, quantity_max_people=? where id_tour=?";
+		try {
+			PreparedStatement ps = (PreparedStatement) con
+					.prepareStatement(query);
+			ps.setInt(1, t.getCateID().getId_cate());
+			ps.setString(2, t.getName_tour());
+			ps.setString(3, t.getImg());
+			ps.setDouble(4, t.getPrice());
+			ps.setString(5, t.getDuration());
+			ps.setDate(6, (java.sql.Date) t.getDate_start());
+			ps.setString(7, t.getPickup_locations());
+			ps.setInt(8, t.getQuantity_max_people());
+			ps.setInt(9, t.getId_tour());
+			ps.executeUpdate();
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+		
+	}
+	
+	@Override
+	public void deleteTour(int id) {
+		DBConnect db = DBConnect.getInstance();
+		Connection con = db.getConnection();
+		String query = "delete from tour where tour.id_tour='" + id + "'";
+		try {
+			PreparedStatement ps = (PreparedStatement) con
+					.prepareStatement(query);
+			ps.executeUpdate();
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Override
@@ -73,12 +128,8 @@ public class TourDAOImpl implements TourDAO {
 				Date date_start = rs.getDate("date_start");
 				String pickup_locations = rs.getString("pickup_locations");
 				int quantity_max_people = rs.getInt("quantity_max_people");
-				int quantity_max_tour = rs.getInt("quantity_max_tour");
-				String describe = rs.getString("describe");
-				String schedule = rs.getString("schedule");
 				list.add(new Tour(id_tour, cateID, name_tour,
-						img, price, duration, date_start,pickup_locations,quantity_max_people,
-						quantity_max_tour,describe,schedule));
+						img, price, duration, date_start,pickup_locations,quantity_max_people));
 			}
 			con.close();
 		} catch (SQLException e) {
@@ -106,12 +157,8 @@ public class TourDAOImpl implements TourDAO {
 				Date date_start = rs.getDate("date_start");
 				String pickup_locations = rs.getString("pickup_locations");
 				int quantity_max_people = rs.getInt("quantity_max_people");
-				int quantity_max_tour = rs.getInt("quantity_max_tour");
-				String describe = rs.getString("describe");
-				String schedule = rs.getString("schedule");
 				return new Tour(id_tour, cateID, name_tour,
-						img, price, duration, date_start,pickup_locations,quantity_max_people,
-						quantity_max_tour,describe,schedule);
+						img, price, duration, date_start,pickup_locations,quantity_max_people);
 			}
 			con.close();
 		} catch (SQLException e) {
@@ -119,82 +166,30 @@ public class TourDAOImpl implements TourDAO {
 		}
 		return null;
 	}
-
-	@Override
-	public List<Tour> searchTour(String tour_name) {
+	
+	public int getTotalTour(String action, String idCate, String search, String modeSort) {
 		DBConnect db = DBConnect.getInstance();
 		Connection con = db.getConnection();
-		String query = "select * from tour inner join category_tour on category_tour.id_cate = tour.id_cate where tour.name_tour like '%" + tour_name + "%'";
-		List<Tour> list = new ArrayList<Tour>();
-		try {
-			PreparedStatement ps = (PreparedStatement) con
-					.prepareStatement(query);
-			ResultSet rs = ps.executeQuery();
-			while (rs.next()) {
-				int id_tour = rs.getInt("id_tour");
-				Category_tour cateID = new Category_tour(rs.getInt("id_cate"), rs.getString("name_cate"));
-				String name_tour = rs.getString("name_tour");
-				String img = rs.getString("img");
-				Double price = rs.getDouble("price");
-				String duration = rs.getString("duration");
-				Date date_start = rs.getDate("date_start");
-				String pickup_locations = rs.getString("pickup_locations");
-				int quantity_max_people = rs.getInt("quantity_max_people");
-				int quantity_max_tour = rs.getInt("quantity_max_tour");
-				String describe = rs.getString("describe");
-				String schedule = rs.getString("schedule");
-				list.add(new Tour(id_tour, cateID, name_tour,
-						img, price, duration, date_start,pickup_locations,quantity_max_people,
-						quantity_max_tour,describe,schedule));
-			}
-			con.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return list;
-	
-	}
-	
-	public List<Tour> pagingTour (int index) {
-		DBConnect db = DBConnect.getInstance();
-		Connection con = db.getConnection();
-		String query = "select * from tour inner join category_tour on category_tour.id_cate = tour.id_cate order by tour.id_tour limit ?, 9";
+		String query = "";
 		
-		List<Tour> list = new ArrayList<Tour>();
-		try {
-			PreparedStatement ps = (PreparedStatement) con
-					.prepareStatement(query);
-			ps.setInt(1, (index-1)*3);
-			ResultSet rs = ps.executeQuery();
-			while (rs.next()) {
-				int id_tour = rs.getInt("id_tour");
-				Category_tour cateID = new Category_tour(rs.getInt("id_cate"), rs.getString("name_cate"));
-				String name_tour = rs.getString("name_tour");
-				String img = rs.getString("img");
-				Double price = rs.getDouble("price");
-				String duration = rs.getString("duration");
-				Date date_start = rs.getDate("date_start");
-				String pickup_locations = rs.getString("pickup_locations");
-				int quantity_max_people = rs.getInt("quantity_max_people");
-				int quantity_max_tour = rs.getInt("quantity_max_tour");
-				String describe = rs.getString("describe");
-				String schedule = rs.getString("schedule");
-				list.add(new Tour(id_tour, cateID, name_tour,
-						img, price, duration, date_start,pickup_locations,quantity_max_people,
-						quantity_max_tour,describe,schedule));
+		switch (action) {
+		case "viewAll":
+			if (search == null) {
+				query = "select count(*) from tour";
+			} else {
+				query = "select count(*) from tour inner join category_tour on category_tour.id_cate = tour.id_cate where concat(tour.name_tour,tour.price) like '%" + search + "%'";
 			}
-			con.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
+			break;
+			
+		case "viewWithCondition":
+			if (search == null) {
+				query = "select count(*) from tour where tour.id_cate= '"+ idCate +"'";
+			} else {
+				query = "select count(*) from tour inner join category_tour on category_tour.id_cate = tour.id_cate where tour.id_cate= '"+ idCate +"' and concat(tour.name_tour,tour.price) like '%" + search + "%'";
+			}
+			break;
 		}
-		return list;
-	
-	}
-	
-	public int getTotalTour() {
-		DBConnect db = DBConnect.getInstance();
-		Connection con = db.getConnection();
-		String query = "select count(*) from tour";
+		
 		try {
 			PreparedStatement ps = (PreparedStatement) con
 					.prepareStatement(query);
@@ -208,14 +203,104 @@ public class TourDAOImpl implements TourDAO {
 		return 0;
 	}
 	
+	public List<Tour> pagingTour (int index, String action, String idCate, String search, String modeSort) {
+		DBConnect db = DBConnect.getInstance();
+		Connection con = db.getConnection();
+
+		String query = "";
+		
+		switch (action) {
+		case "viewAll":
+			query = "select * from tour inner join category_tour on category_tour.id_cate = tour.id_cate ";
+			if (search != null && modeSort != null) {
+				query += "where concat(tour.name_tour,tour.price) like '%" + search + "%' order by tour.price ";
+				if (modeSort.equals("asc")) {
+					query += "limit ?, ?";
+				} else {
+					query += "desc limit ?, ?";
+					}
+			} 
+			else if (search != null) {
+				query += "where concat(tour.name_tour,tour.price,category_tour.name_cate) like '%" + search + "%' order by tour.id_tour limit ?, ?";
+			}
+			else if (modeSort != null) {
+				if (modeSort.equals("desc")) {
+					query += "order by tour.price desc limit ?, ?";
+				} else {
+					query += "order by tour.price limit ?, ?";
+				}
+			} 
+			else {
+				query += "order by tour.id_tour limit ?, ?";
+			}
+			
+			break;
+			
+		case "viewWithCondition":
+			query = "select * from tour inner join category_tour on category_tour.id_cate = tour.id_cate where tour.id_cate= '"+ idCate +"' ";
+			if (search != null && modeSort != null) {
+				query += "and concat(tour.name_tour,tour.price) like '%" + search + "%' order by tour.price ";
+				if (modeSort.equals("asc")) {
+					query += "limit ?, ?";
+				} else {
+					query += "desc limit ?, ?";
+					}
+			} 
+			else if (search != null) {
+				query += "and concat(tour.name_tour,tour.price,category_tour.name_cate) like '%" + search + "%' order by tour.id_tour limit ?, ?";
+			}
+			else if (modeSort != null) {
+				if (modeSort.equals("desc")) {
+					query += "order by tour.price desc limit ?, ?";
+				} else {
+					query += "order by tour.price limit ?, ?";
+				}
+			} 
+			else {
+				query += "order by tour.id_tour limit ?, ?";
+			}
+			
+			break;
+		}
+		
+		List<Tour> list = new ArrayList<Tour>();
+		try {
+			PreparedStatement ps = (PreparedStatement) con
+					.prepareStatement(query);
+			
+			ps.setInt(1, (index-1)*9);
+			ps.setInt(2, 9);
+			
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				int id_tour = rs.getInt("id_tour");
+				Category_tour cateID = new Category_tour(rs.getInt("id_cate"), rs.getString("name_cate"));
+				String name_tour = rs.getString("name_tour");
+				String img = rs.getString("img");
+				Double price = rs.getDouble("price");
+				String duration = rs.getString("duration");
+				Date date_start = rs.getDate("date_start");
+				String pickup_locations = rs.getString("pickup_locations");
+				int quantity_max_people = rs.getInt("quantity_max_people");
+				list.add(new Tour(id_tour, cateID, name_tour,
+						img, price, duration, date_start,pickup_locations,quantity_max_people));
+			}
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
 	
+	}
 	
 	public static void main(String[] args) {
 		TourDAOImpl tourDAO = new TourDAOImpl();
-		List<Tour> list = tourDAO.pagingTour(1);
-		for(Tour t:list){
-		    System.out.println(t);
-		}
+//		List<Tour> list = tourDAO.sortTour("name_tour", "asc");
+		List<Tour> list = tourDAO.getAllTour();
+//		for(Tour t:list){
+//		    System.out.println(t);
+//		}
+//		tourDAO.deleteTour(2);
 //		int count = tourDAO.getTotalTour();
 //		System.out.println(count);
 	}

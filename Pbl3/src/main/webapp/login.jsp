@@ -41,12 +41,12 @@
 							id="login-form">
 							<div class="form-group">
 								<label for="username"><i
-									class="zmdi zmdi-account material-icons-name"></i></label> <input
+									class="zmdi zmdi-account material-icons-name"></i></label> <input required="required"
 									type="text" name="username" id="username" value="${username }"
 									placeholder="Username" />
 							</div>
 							<div class="form-group">
-								<label for="password"><i class="zmdi zmdi-lock"></i></label> <input
+								<label for="password"><i class="zmdi zmdi-lock"></i></label> <input required="required"
 									type="password" name="password" id="password"
 									value="${password }" placeholder="Password" />
 							</div>
@@ -64,25 +64,24 @@
 									class="form-submit" value="Log in" />
 							</div>
 						</form>
-						<form method="post" action="sendSMS">
+						<form method="post" action="forgotPassword">
 							<div class="popup">
 								<header>
-									<span>Reset Password</span>
+									<span>Forgot Password</span>
 									<div class="close">
 										<i class="uil uil-times"></i>
 									</div>
 								</header>
-								<p>Enter your phone number and we will send you a link to
-									reset your password.</p>
+								<p>Enter your email and we will send your password.</p>
 
 								<div class="field">
 
-									  <input type="number" id="phone" name="phone" placeholder="Your email" required>
+									  <input required="required" type="email" id="email" name="email" placeholder="Your email" required>
 								</div>
 								<div class="tag-a">
 
 									<button type="submit">Send password
-											to phone</button>
+											to email</button>
 								</div>
 							</div>
 						</form>

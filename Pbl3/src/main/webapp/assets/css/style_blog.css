@@ -288,15 +288,6 @@ body {
     border-radius: 18%;
 }
 
-/*
-.page-number a:hover,
-.page-number a:nth-child(2) {
-    background-color: #f79f1f;
-    color: white;
-    transition: 200ms ease;
-}
-*/
-
 .page-number a:hover,
 .page-number a.active {
     background-color: #f79f1f;

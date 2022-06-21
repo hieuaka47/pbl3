@@ -31,24 +31,24 @@
 							<div class="form-group">
 								<label for="name"><i
 									class="zmdi zmdi-account material-icons-name"></i></label> <input
-									type="text" name="name" id="name" placeholder="Username" />
+									type="text" name="name" id="name" placeholder="Username" required="required" />
 							</div>
 							<div class="form-group">
 								<label for="yourname"><i
-									class="zmdi zmdi-account material-icons-name"></i></label> <input
+									class="zmdi zmdi-account material-icons-name"></i></label> <input required="required"
 									type="text" name="yourname" id="yourname" placeholder="Your Name" />
 							</div>
 							<div class="form-group">
-								<label for="email"><i class="zmdi zmdi-email"></i></label> <input
+								<label for="email"><i class="zmdi zmdi-email"></i></label> <input required="required"
 									type="email" name="email" id="email" placeholder="Your Email" />
 							</div>
 							<div class="form-group">
-								<label for="password"><i class="zmdi zmdi-lock"></i></label> <input
+								<label for="password"><i class="zmdi zmdi-lock"></i></label> <input required="required"
 									type="password" name="password" id="password" placeholder="Password" />
 							</div>
 							<div class="form-group">
 								<label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-								<input type="password" name="re_pass" id="re_pass"
+								<input type="password" name="re_pass" id="re_pass" required="required"
 									placeholder="Repeat your password" />
 							</div>
 							<div class="form-group">
@@ -56,12 +56,12 @@
 							</div>
 							<div class="form-group">
 								<label for="birthday"><i class="zmdi zmdi-calendar-note"></i></label>
-								<input type="date" name="birthday" id="birthday"
+								<input type="date" name="birthday" id="birthday" required="required"
 									/>
 							</div>
 							<div class="form-group">
 								<label for="gender"><i class="zmdi zmdi-male"></i> Male</label>
-								<input type="radio" name="gender" id="gender" value="0" >
+								<input type="radio" name="gender" id="gender" value="0" required="required" >
 							</div>
 							<div class="form-group">
 								<label for="gender"><i class="zmdi zmdi-female"></i> Female</label>
@@ -69,23 +69,23 @@
 							</div>
 							<div class="form-group">
 								<label for="number"><i class="zmdi zmdi-account-box-phone"></i></label>
-								<input type="text" name="number" id="number"
+								<input type="text" name="number" id="number" required="required"
 									placeholder="Your Number" />
 							</div>
 							<div class="form-group">
 								<label for="address"><i class="zmdi zmdi-pin"></i></label>
-								<input type="text" name="address" id="address"
+								<input type="text" name="address" id="address" required="required"
 									placeholder="Your Address" />
 							</div>
 							<div class="form-group">
-								<input type="checkbox" name="agree-term" id="agree-term"
+								<input type="checkbox" name="agree-term" id="agree-term" required="required"
 									class="agree-term" /> <label for="agree-term"
 									class="label-agree-term"><span><span></span></span>I
 									agree all statements in <a href="#" class="term-service">Terms
 										of service</a></label>
 							</div>
 							<div class="form-group form-button">
-								<input type="submit" name="signup" id="signup"
+								<input type="submit" name="signup" id="signup" required="required"
 									class="form-submit" value="Register" />
 							</div>
 						</form>
