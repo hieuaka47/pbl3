@@ -1,4 +1,4 @@
-package Controller.user;
+package Common;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Sign Up</title>
+<title>Log in</title>
 
 <!-- Font Icon -->
 <link rel="stylesheet"
@@ -13,6 +13,8 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 <link rel="stylesheet"
 	href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+	type="text/css">
 <!-- Main css -->
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -36,20 +38,23 @@
 					</div>
 
 					<div class="signin-form">
-						<h2 class="form-title">Sign in</h2>
+						<h2 class="form-title">Log in</h2>
 						<form method="post" action="login" class="register-form"
 							id="login-form">
 							<div class="form-group">
 								<label for="username"><i
-									class="zmdi zmdi-account material-icons-name"></i></label> <input required="required"
-									type="text" name="username" id="username" value="${username }"
-									placeholder="Username" />
+									class="zmdi zmdi-account material-icons-name"></i></label> <input
+									required="required" type="text" name="username" id="username"
+									value="${username }" placeholder="Username" />
 							</div>
-							<div class="form-group">
-								<label for="password"><i class="zmdi zmdi-lock"></i></label> <input required="required"
-									type="password" name="password" id="password"
-									value="${password }" placeholder="Password" />
+							<div class="form-group" style="display: flex">
+								<label for="password"><i class="zmdi zmdi-lock"></i></label> <input
+									required="required" type="password" name="password"
+									id="password" value="${password }" placeholder="Password" />
+
 							</div>
+							<i class="fas fa-eye" onclick="passFunction()"
+								style="position: relative; float: right; top: -3.2rem; cursor: pointer;"></i>
 							<div class="form-group">
 								<input type="checkbox" name="remember-me" id="remember-me"
 									${cookie.passC != null ? 'checked' : ''} class="agree-term" />
@@ -74,14 +79,15 @@
 								</header>
 								<p>Enter your email and we will send your password.</p>
 
-								<div class="field">
+								<div class="field"
+									style="margin-top: 8px; border: 1px solid; border-radius: 0.5rem;">
 
-									  <input required="required" type="email" id="email" name="email" placeholder="Your email" required>
+									<input required="required" type="email" id="email" name="email"
+										style="height: 1.7rem" placeholder="Your email" required>
 								</div>
 								<div class="tag-a">
 
-									<button type="submit">Send password
-											to email</button>
+									<button type="submit">Send password to email</button>
 								</div>
 							</div>
 						</form>
@@ -109,6 +115,17 @@
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<link rel="stylesheet" href="alert/dist/sweetalert.css">
 	<script>
+	
+	var x=true;
+	function passFunction(){
+	    if(x){
+	        document.getElementById('password').type="text";
+	        x=false;
+	    }else{
+	        document.getElementById('password').type="password";
+	        x=true;
+	    }
+	}
     const viewBtn = document.querySelector(".view-modal"),
     popup = document.querySelector(".popup"),
     close = popup.querySelector(".close"),
@@ -147,16 +164,16 @@
 			swal("Sorry", "Wrong Username or Password ! <3", "error");
 		}
 		if (message === "incorrect") {
-			swal("Sorry", "Phone number are incorrect !", "error");
+			swal("Sorry", "Email are incorrect !", "error");
 		}
 		if (message === "correct") {
-			swal("Congrats", "Password sent to the your phone. Please check and get your password !", "success");
+			swal("Congrats", "Password sent to the your email. Please check and get your password !", "success");
 		}
 	</script>
-<%
+	<%
 	request.removeAttribute("status");
 	request.removeAttribute("message");
-%>
+	%>
 </body>
 <!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>

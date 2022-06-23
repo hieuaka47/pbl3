@@ -16,7 +16,6 @@ public class Transfer extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String location = request.getParameter("location");
-		System.out.println(location+"aaa");
 		if (location.equals("list_tour")) {
 			response.sendRedirect(request.getContextPath()+"/list_tour?action=viewAll&selected=null");
 		} else {

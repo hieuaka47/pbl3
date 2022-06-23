@@ -1,6 +1,7 @@
 package Controller.user;
 
 import java.io.IOException;
+import java.net.URL;
 import java.net.URLEncoder;
 
 import javax.servlet.RequestDispatcher;
@@ -45,6 +46,12 @@ public class Login extends HttpServlet {
 		String password = request.getParameter("password");
 		String remember = request.getParameter("remember-me");
 		String status = "";
+		
+		String url = request.getServletPath();
+		String urlGet = request.getRequestURL().toString();
+		String serverPath = request.getRequestURL().substring(0,request.getRequestURL().indexOf(url));
+		URL urlPath = new URL(serverPath);
+		
 		if (username.equals("") || password.equals("")) {
 			status = "nullErro";
 		} else {
@@ -65,6 +72,7 @@ public class Login extends HttpServlet {
 				User acc = userDAO.getUser(username);
 				session.setAttribute("acc", acc);
 				session.setAttribute("status", "successLogin");
+				session.setAttribute("urlPath", urlPath);
 
 				Cookie u = new Cookie("userC", username);
 				Cookie p = new Cookie("passC", password);
@@ -76,7 +84,7 @@ public class Login extends HttpServlet {
 				}
 				response.addCookie(u);
 				response.addCookie(p);
-
+				
 				response.sendRedirect("home");
 			} else {
 				RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.jsp");

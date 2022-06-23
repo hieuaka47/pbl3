@@ -1,6 +1,7 @@
 package Filter;
 
 import java.io.IOException;
+import java.net.URL;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -12,8 +13,6 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import org.apache.catalina.Session;
 
 import Model.User;
 
@@ -33,16 +32,19 @@ public class FilterUserLogined implements Filter{
 		HttpServletRequest req = (HttpServletRequest)request;
 		HttpServletResponse resp = (HttpServletResponse)response;
 		HttpSession session = req.getSession(false);
+		
 		String url = req.getServletPath();
-		System.out.println(url);
+		String urlGet = req.getRequestURL().toString();
+		String serverPath = req.getRequestURL().substring(0,req.getRequestURL().indexOf(url));
+		URL urlPath = new URL(serverPath);
+		
 		User u = (User) session.getAttribute("acc");
 		if (session.getAttribute("acc") != null) {
 			if (url.contains("logout")) {
-				System.out.println("a");
 				arg2.doFilter(request, response);
 				return;
 			} else {
-				resp.sendRedirect("http://localhost:8080/Pbl3/home");
+				resp.sendRedirect(urlPath+"/home");
 				return;
 			}
 		}

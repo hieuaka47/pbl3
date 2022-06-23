@@ -15,19 +15,22 @@ $(document).ready(function() {
 	})
    })
    
-   $('').attr('href' , 'http://catbloguat.myblog.com');
-   
-   	$(".table-responsive table thead tr th").click(function(event){
+   	$("#tag-a").click(function(event){
 		event.preventDefault();
-    var col = $(this).val();
+    var oldP = $("#oldP").val();
+    var newP = $("#newP").val();
+    var reNewP = $("#reNewP").val();
     $.ajax ({
-      url: 'table_user_handel',
-      type: 'GET',
+      url: 'change_password',
+      type: 'POST',
       data: {
-        col: col
+        oldP: oldP,
+        newP: newP,
+        reNewP: reNewP
       },
       success: function(data){
-        
+         alert(data);
+         location.reload(); 
       }
 	})
    })

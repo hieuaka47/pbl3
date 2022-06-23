@@ -1,6 +1,7 @@
 package Filter;
 
 import java.io.IOException;
+import java.net.URL;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -34,9 +35,14 @@ public class FilterUserNoLogin implements Filter{
 		HttpServletResponse resp = (HttpServletResponse)response;
 		HttpSession session = req.getSession(false);
 		
+		String url = req.getServletPath();
+		String urlGet = req.getRequestURL().toString();
+		String serverPath = req.getRequestURL().substring(0,req.getRequestURL().indexOf(url));
+		URL urlPath = new URL(serverPath);
+		
 		User u = (User) session.getAttribute("acc");
 		if (session.getAttribute("acc") == null) {
-			resp.sendRedirect("http://localhost:8080/Pbl3/page404");
+			resp.sendRedirect(urlPath+"/page404");
 			return;
 		} else {
 			arg2.doFilter(request, response);

@@ -14,6 +14,8 @@ public interface UserDAO {
 	
 	public void updateUser(User u);
 	
+	public void changePassword(int id, String newPass);
+	
 	public List<User> getAllUser();
 	
 	public User getUser(String username);
@@ -21,6 +23,4 @@ public interface UserDAO {
 	public User findUserByPhone(String phone_user);
 	
 	public User findUserByEmail(String phone_user);
-	
-	public List<User> sortUser(String col, String mode);
 }
