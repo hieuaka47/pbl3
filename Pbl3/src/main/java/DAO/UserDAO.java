@@ -20,6 +20,8 @@ public interface UserDAO {
 	
 	public User getUser(String username);
 	
+	public User getUserByID(int id);
+	
 	public User findUserByPhone(String phone_user);
 	
 	public User findUserByEmail(String phone_user);

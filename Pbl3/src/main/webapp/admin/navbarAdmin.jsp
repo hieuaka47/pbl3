@@ -38,7 +38,7 @@
 				<a class="collapse-item" href="table_user">User</a> <a
 					class="collapse-item" href="table_tour">Tour</a> <a
 					class="collapse-item" href="tableCategoryTour">Category Tour</a> <a
-					class="collapse-item" href="test">History Order</a> <a
+					class="collapse-item" href="table_history_order">History Order</a> <a
 					class="collapse-item" href="">Blogs</a>
 			</div>
 		</div></li>

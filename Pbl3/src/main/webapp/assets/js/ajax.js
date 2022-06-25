@@ -15,6 +15,21 @@ $(document).ready(function() {
 	})
    })
    
+   	$("#addToCart").click(function(event){
+		event.preventDefault();
+    var id = $("#addToCartValue").val();
+    $.ajax ({
+      url: 'add-to-cart',
+      type: 'GET',
+      data: {
+        id: id
+      },
+      success: function(data){
+        swal("Congrats","Wow ! The Tour has been added to your cart ! <3 ","success");
+      }
+	})
+   })
+   
    	$("#tag-a").click(function(event){
 		event.preventDefault();
     var oldP = $("#oldP").val();

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import DAO.UserDAOImpl;
+import DAO.*;
 import Model.User;
 
 /**
@@ -51,7 +51,8 @@ public class Login extends HttpServlet {
 		String urlGet = request.getRequestURL().toString();
 		String serverPath = request.getRequestURL().substring(0,request.getRequestURL().indexOf(url));
 		URL urlPath = new URL(serverPath);
-		
+		UserDAO userDao = new UserDAOImpl();
+		User user = userDao.getUser(username);
 		if (username.equals("") || password.equals("")) {
 			status = "nullErro";
 		} else {
@@ -65,14 +66,12 @@ public class Login extends HttpServlet {
 		} else {
 			request.setAttribute("status", status);
 		}
-
 		try {
 			if (status.length() == 0) {
 				HttpSession session = request.getSession();
 				User acc = userDAO.getUser(username);
 				session.setAttribute("acc", acc);
 				session.setAttribute("status", "successLogin");
-				session.setAttribute("urlPath", urlPath);
 
 				Cookie u = new Cookie("userC", username);
 				Cookie p = new Cookie("passC", password);
@@ -84,13 +83,13 @@ public class Login extends HttpServlet {
 				}
 				response.addCookie(u);
 				response.addCookie(p);
-				
+
 				response.sendRedirect("home");
+				session.setAttribute("loginUser", user);
 			} else {
 				RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.jsp");
 				rd.forward(request, response);
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 			response.sendRedirect("/login.jsp");

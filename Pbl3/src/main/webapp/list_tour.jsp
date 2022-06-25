@@ -29,8 +29,6 @@
 </head>
 <jsp:include page="header_home.jsp"></jsp:include>
 <body>
-	<input type="hidden" id=cart_status
-		value="<%=session.getAttribute("cart_status")%>">
 
 	<main>
 		<!-- DEMO HTML -->
@@ -215,7 +213,9 @@
 	})
 
     </script>
-
+	
+	<script src="assets/js/jquery-3.6.0.js"></script>
+	<script src="assets/js/ajax.js"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<link rel="stylesheet" href="alert/dist/sweetalert.css">
 

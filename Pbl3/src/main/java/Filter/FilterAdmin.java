@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 
 import Model.User;
 
-@WebFilter(urlPatterns = { "/admin/*" })
+@WebFilter(urlPatterns = { "/admin/*"})
 public class FilterAdmin implements Filter {
 
 	@Override
@@ -37,7 +37,6 @@ public class FilterAdmin implements Filter {
 		String urlGet = req.getRequestURL().toString();
 		String serverPath = req.getRequestURL().substring(0,req.getRequestURL().indexOf(url));
 		URL urlPath = new URL(serverPath);
-		System.out.println(urlPath);
 		
 		if (session.getAttribute("acc") == null) {
 			resp.sendRedirect(urlPath+"/page404");

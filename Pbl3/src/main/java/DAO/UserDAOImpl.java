@@ -180,6 +180,36 @@ public class UserDAOImpl implements UserDAO {
 	}
 	
 	@Override
+	public User getUserByID(int id) {
+		DBConnect db = DBConnect.getInstance();
+		Connection con = db.getConnection();
+		String sql = "select * from user where user_id='" + id + "'";
+		User u = new User();
+		try {
+			PreparedStatement ps = (PreparedStatement) con
+					.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				int user_id= rs.getInt("user_id");
+				String username = rs.getString("username");
+				String hoten = rs.getString("hoten");
+				String email = rs.getString("email");
+				String password = rs.getString("password");
+				Date ngaysinh = rs.getDate("ngaysinh");
+				Boolean gioitinh = rs.getBoolean("gioitinh");
+				String sdt = rs.getString("sdt");
+				String diachi = rs.getString("diachi");
+				String role = rs.getString("role");
+				u = new User(user_id, username, hoten, email, password, ngaysinh, gioitinh, sdt, diachi, role);
+			}
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return u;
+	}
+	
+	@Override
 	public User findUserByPhone(String phone_user) {
 		DBConnect db = DBConnect.getInstance();
 		Connection con = db.getConnection();
@@ -240,10 +270,12 @@ public class UserDAOImpl implements UserDAO {
 	}
 	
 	public static void main(String[] args) {
-//		UserDAOImpl dao = new UserDAOImpl();
+		UserDAOImpl dao = new UserDAOImpl();
+		User list = dao.getUserByID(1);
 //		for (User user : list) {
 //			System.out.println(user);
 //		}
+		System.out.println(list);
 	}
 
 }

@@ -18,8 +18,8 @@ import org.apache.catalina.Session;
 
 import Model.User;
 
-@WebFilter(urlPatterns = {"/cart", "/update_user", "/logout", "/add-to-cart", "/history_order_user"})
-public class FilterUserNoLogin implements Filter{
+@WebFilter(urlPatterns = {"/cart", "/add-to-cart", "/history_order_user"})
+public class FilterAminUser implements Filter{
 	
 	@Override
 	public void destroy() {
@@ -41,7 +41,7 @@ public class FilterUserNoLogin implements Filter{
 		URL urlPath = new URL(serverPath);
 		
 		User u = (User) session.getAttribute("acc");
-		if (session.getAttribute("acc") == null) {
+		if (u.getRole().equals("1")) {
 			resp.sendRedirect(urlPath+"/page404");
 			return;
 		} else  {

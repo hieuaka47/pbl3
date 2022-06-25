@@ -36,8 +36,14 @@
 	<main>
 		<nav
 			class="navbar navbar-expand-lg navbar-light fixed-top py-5 d-block nav-header"
-			data-navbar-on-scroll="data-navbar-on-scroll" ${sessionScope.acc != null ? ' style="padding-bottom: 0 !important;
-    padding-top: 0 !important;"' : 'style=""'}>
+			data-navbar-on-scroll="data-navbar-on-scroll"
+			${sessionScope.acc == null ? 'style=""' : '""'}
+			${requestScope.isHistory != null ? 'style="white-space: nowrap;
+    padding-bottom: 1rem !important;
+    padding-top: 1rem !important;"' : 'style="padding-bottom: 0 !important;
+    padding-top: 0 !important;"' }>
+
+
 			<div class="container">
 				<a class="navbar-brand" href="index.jsp"><img
 					src="assets/img/logo.svg" height="34" alt="logo" /></a>
@@ -48,17 +54,19 @@
 					<span class="navbar-toggler-icon"> </span>
 				</button>
 				<div
+					${requestScope.isHistory != null ? 'style="margin-right: 12rem;"' : 'style=""'}
 					class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0"
 					id="navbarSupportedContent">
 					<ul
 						class="navbar-nav ms-auto pt-2 pt-lg-0 font-base align-items-lg-center align-items-start">
 						<li class="nav-item px-3 px-xl-4"><a
-							class="nav-link fw-medium" aria-current="page" ${sessionScope.acc.role == 1 ? 'href="transfer?location=home"' : 'href="home"'}>Home</a></li>
+							class="nav-link fw-medium" aria-current="page"
+							${sessionScope.acc.role == 1 ? 'href="transfer?location=home"' : 'href="home"'}>Home</a></li>
+						<li class="nav-item px-3 px-xl-4"><a
+							class="nav-link fw-medium" aria-current="page"${sessionScope.acc.role == 1 ? 'href="transfer?location=list_blog"' : 'href="list_blog"'}">Blogs</a></li>
 						<li class="nav-item px-3 px-xl-4"><a
 							class="nav-link fw-medium" aria-current="page"
-							${sessionScope.acc.role == 1 ? 'href="transfer?location=list_blog"' : 'href="list_blog"'}">Blogs</a></li>
-						<li class="nav-item px-3 px-xl-4"><a
-							class="nav-link fw-medium" aria-current="page" ${sessionScope.acc.role == 1 ? 'href="transfer?location=list_tour"' : 'href="list_tour?action=viewAll&selected=null"'}>Tour</a></li>
+							${sessionScope.acc.role == 1 ? 'href="transfer?location=list_tour"' : 'href="list_tour?action=viewAll&selected=null"'}>Tour</a></li>
 						<c:if test="${sessionScope.acc.role != 1 }">
 							<li class="nav-item px-3 px-xl-4"><a
 								class="nav-link fw-medium" aria-current="page"
@@ -66,7 +74,8 @@
 						</c:if>
 						<c:if test="${sessionScope.acc.role == 1 }">
 							<li class="nav-item px-3 px-xl-4"><a
-								class="nav-link fw-medium" aria-current="page" href="admin/admin_home">Manager</a></li>
+								class="nav-link fw-medium" aria-current="page"
+								href="admin/admin_home">Manager</a></li>
 						</c:if>
 
 						<c:if test="${sessionScope.acc != null }">
@@ -74,12 +83,17 @@
 								class="nav-link fw-medium" aria-current="page"
 								onclick="return false;" href="#">Hello
 									${sessionScope.acc.username }</a>
-								<ul class="nav__listitemdrop">
-									<li><a ${sessionScope.acc.role == 1 ? 'href="transfer?location=update_user"' : 'href="update_user"'}>Your Profile</a></li>
+								<ul class="nav__listitemdrop"
+									${requestScope.isHistory != null ? 'style="margin-top: -2.5rem;"' : 'style=""' }>
+									<li><a
+										${sessionScope.acc.role == 1 ? 'href="transfer?location=update_user"' : 'href="update_user"'}>Your
+											Profile</a></li>
 									<c:if test="${sessionScope.acc.role != 1 }">
-										<li><a href="">Order</a></li>
+										<li><a href="history_order_user">History Order</a></li>
 									</c:if>
-									<li><a ${sessionScope.acc.role == 1 ? 'href="transfer?location=logout"' : 'href="logout"'}>Log out</a></li>
+									<li><a
+										${sessionScope.acc.role == 1 ? 'href="transfer?location=logout"' : 'href="logout"'}>Log
+											out</a></li>
 								</ul></li>
 						</c:if>
 						<c:if test="${sessionScope.acc == null }">

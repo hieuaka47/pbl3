@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -296,7 +298,6 @@ public class TourDAOImpl implements TourDAO {
 	public static void main(String[] args) {
 		TourDAOImpl tourDAO = new TourDAOImpl();
 //		List<Tour> list = tourDAO.sortTour("name_tour", "asc");
-		List<Tour> list = tourDAO.getAllTour();
 //		for(Tour t:list){
 //		    System.out.println(t);
 //		}

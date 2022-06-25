@@ -1,14 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@page import="java.util.ArrayList"%>
+<%@page import="Model.*"%>
+<%@page import="DAO.*"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cart</title>
     <link rel="stylesheet" href="assets/css/style_cart.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/jquery-3.3.1.slim.min.js">
@@ -59,14 +61,15 @@
 	                            </div>
 	                          </div>
 	                        </th>
-	                        <td class="border-0 align-middle"><strong class="margin-price" >${entry.value.quantity * entry.value.unitPrice}</strong></td>
-	                        <td class="border-0 align-middle"><strong class="center">${entry.value.quantity }</strong></td>
+	                        <td class="border-0 align-middle"><strong class="margin-price" >${entry.value.unitPrice}</strong></td>
+	                        <td class="border-0 align-middle"><strong class="center">${entry.value.tour.cateID.name_cate }</strong></td>
 	                        <td class="border-0 align-middle"><li value="${entry.key}" class="text-dark center"><i class="fa fa-trash"></i></li></td>
-	                      </tr>
+	                      </tr>                     	                      							                    
 	                     </c:forEach>
                     </tbody>
                   </table>
                 </div>
+
                 <!-- End -->
               </div>
             </div>
@@ -94,12 +97,12 @@
                 <div class="p-4">
                   <p class="font-italic mb-4">Shipping and additional costs are calculated based on values you have entered.</p>
                   <ul class="list-unstyled mb-4">
-	                    <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>$390.00</strong></li>
+	                  <!--    <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>${t.total}</strong></li>
 	                    <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>$0.00</strong></li>
 	                    <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
 	                      <h5 class="font-weight-bold">$400.00</h5>
-	                    </li>   
-                  </ul><a href="#" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
+	                    </li>-->   
+                  </ul><a href="add-order" class="btn btn-dark rounded-pill py-2 btn-block">Thanh Toán</a>
                 </div>
               </div>
             </div>
