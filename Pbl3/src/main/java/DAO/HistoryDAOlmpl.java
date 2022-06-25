@@ -38,7 +38,7 @@ public class HistoryDAOlmpl implements HistoryDAO{
 	public List<History> getList(int id) {
 		DBConnect db = DBConnect.getInstance();
 		Connection con = db.getConnection();
-		String sql = "select * from history where user_id='"+ id +"'";
+		String sql = "select * from history where user_id='"+ id +"' order by ngay_mua desc";
 		List<History> list = new ArrayList<History>();
 		try {	
 			PreparedStatement ps = (PreparedStatement) con
@@ -62,7 +62,7 @@ public class HistoryDAOlmpl implements HistoryDAO{
 	public List<History> getListAll() {
 		DBConnect db = DBConnect.getInstance();
 		Connection con = db.getConnection();
-		String sql = "select * from history ";
+		String sql = "select * from history order by ngay_mua desc";
 		List<History> list = new ArrayList<History>();
 		try {	
 			PreparedStatement ps = (PreparedStatement) con

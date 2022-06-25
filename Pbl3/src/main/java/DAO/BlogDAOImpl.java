@@ -306,7 +306,7 @@ public class BlogDAOImpl implements BlogDAO {
 	}
 
 	public static void main(String[] args) {
-		DAO dao = new DAO();
+		BlogDAOImpl dao = new BlogDAOImpl();
 		int i = 1;
 		String s = String.valueOf(i);
 		System.out.println(dao.getLocationById(1));

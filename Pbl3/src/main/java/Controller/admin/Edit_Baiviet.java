@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DAO.BlogDAOImpl;
-import DAO.DAO;
 
 /**
  * Servlet implementation class Edit_Baiviet

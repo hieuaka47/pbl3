@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import DAO.BlogDAOImpl;
-import DAO.DAO;
 
 /**
  * Servlet implementation class Add_Baiviet

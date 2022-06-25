@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DAO.BlogDAOImpl;
-import DAO.DAO;
 import Model.Baiviet;
 import Model.Diadiem;
 
