@@ -41,7 +41,7 @@ public class FilterAminUser implements Filter{
 		URL urlPath = new URL(serverPath);
 		
 		User u = (User) session.getAttribute("acc");
-		if (u.getRole().equals("1")) {
+		if (u != null && u.getRole().equals("1")) {
 			resp.sendRedirect(urlPath+"/page404");
 			return;
 		} else  {

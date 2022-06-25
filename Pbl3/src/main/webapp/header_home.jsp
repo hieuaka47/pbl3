@@ -63,7 +63,7 @@
 							class="nav-link fw-medium" aria-current="page"
 							${sessionScope.acc.role == 1 ? 'href="transfer?location=home"' : 'href="home"'}>Home</a></li>
 						<li class="nav-item px-3 px-xl-4"><a
-							class="nav-link fw-medium" aria-current="page"${sessionScope.acc.role == 1 ? 'href="transfer?location=list_blog"' : 'href="list_blog"'}">Blogs</a></li>
+							class="nav-link fw-medium" aria-current="page" ${sessionScope.acc.role == 1 ? 'href="transfer?location=Post"' : 'href="Post"'}>Blogs</a></li>
 						<li class="nav-item px-3 px-xl-4"><a
 							class="nav-link fw-medium" aria-current="page"
 							${sessionScope.acc.role == 1 ? 'href="transfer?location=list_tour"' : 'href="list_tour?action=viewAll&selected=null"'}>Tour</a></li>

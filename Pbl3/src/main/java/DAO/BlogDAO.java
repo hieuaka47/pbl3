@@ -2,20 +2,32 @@ package DAO;
 
 import java.util.List;
 
-import Model.Blog;
+import Model.Baiviet;
+import Model.Diadiem;
 
 public interface BlogDAO {
-	// hiển thị danh sách 
-	public List<Blog> getAllBlog();
 
-	// thêm 
-	public void addBlog(Blog b);
+	public List<Baiviet> pagingBaiviet(int index);
 
+	public int getTotalBlog();
 
-	// lấy danh sách  dựa vào Category
-	public List<Blog> getListByCategory(int id_category);
-	
-	public Blog getBlog(int id_blog);
-	
-	public List<Blog> searchBlog(String blog_name);
+	public int getTotalBlogByLID(String idlocation);
+
+	public List<Baiviet> getAllBaiviet();
+
+	public List<Diadiem> getAllLocation();
+
+	public Diadiem getLocationById(int id);
+
+	public List<Baiviet> getBaivietLID(String idlocation);
+
+	public Baiviet getBaiviet(String id);
+
+	public void addBaiviet(String idlocation, String title, String brief, String noidung, String img, String img2,
+			String img3, String img4);
+
+	public void deleteBaiviet(String qid);
+
+	public void editBaiviet(String idlocation, String title, String brief, String noidung, String img, String img2,
+			String img3, String img4, String pid);
 }

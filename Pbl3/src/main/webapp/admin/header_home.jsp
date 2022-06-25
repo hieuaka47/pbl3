@@ -56,7 +56,7 @@
 							class="nav-link fw-medium" aria-current="page" ${sessionScope.acc.role == 1 ? 'href="/Pbl3/transfer?location=home"' : 'href="home"'}>Home</a></li>
 						<li class="nav-item px-3 px-xl-4"><a
 							class="nav-link fw-medium" aria-current="page"
-							${sessionScope.acc.role == 1 ? 'href="/Pbl3/transfer?location=list_blog"' : 'href="list_blog"'}">Blogs</a></li>
+							${sessionScope.acc.role == 1 ? 'href="/Pbl3/transfer?location=Post"' : 'href="Post"'}>Blogs</a></li>
 						<li class="nav-item px-3 px-xl-4"><a
 							class="nav-link fw-medium" aria-current="page" ${sessionScope.acc.role == 1 ? 'href="/Pbl3/transfer?location=list_tour"' : 'href="list_tour?action=viewAll&selected=null"'}>Tour</a></li>
 						<c:if test="${sessionScope.acc.role != 1 }">

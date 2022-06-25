@@ -1,21 +1,18 @@
 package DAO;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 import Model.Baiviet;
-import Model.Blog;
-import Model.Category_blog;
 import Model.Category_tour;
 import Model.Diadiem;
-import Model.Tour;
 
-public class BlogDAOImpl implements BlogDAO {
+import java.sql.*;
+import java.util.*;
+import java.util.Date;
+import java.lang.*;
+
+import DAO.DBConnect;
+import Controller.user.*;
+
+public class DAO {
 	Connection conn = null;
 	PreparedStatement ps = null;
 	ResultSet rs = null;
@@ -150,7 +147,7 @@ public class BlogDAOImpl implements BlogDAO {
 		}
 		return list;
 	}
-
+	
 	public Diadiem getLocationById(int id) {
 		String query = "select * from diadiem where idlocation='" + id + "'";
 		Diadiem d = new Diadiem();
@@ -311,4 +308,5 @@ public class BlogDAOImpl implements BlogDAO {
 		String s = String.valueOf(i);
 		System.out.println(dao.getLocationById(1));
 	}
+
 }
